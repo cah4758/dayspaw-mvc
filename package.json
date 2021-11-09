@@ -1,0 +1,27 @@
+{
+  "name": "project2-dayspaw",
+  "version": "1.0.0",
+  "description": "Test to see if Mike's branch works",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeMallonIT/Project2-DaySpaw.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeMallonIT/Project2-DaySpaw/issues"
+  },
+  "homepage": "https://github.com/MikeMallonIT/Project2-DaySpaw#readme",
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "materialize-css": "^1.0.0-rc.2"
+  }
+}
