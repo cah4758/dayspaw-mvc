@@ -1,0 +1,41 @@
+<link="Styles.css" a href="styles.css">
+
+<form id="form">
+    <div class="field">
+      <label for="from_name">Your name</label>
+      <input type="text" name="from_name" id="from_name">
+    </div>
+    <div class="field">
+      <label for="inster_name">Dogs_name</label>
+      <input type="text" name="inster_name" id="inster_name">
+    </div>
+    <div class="field">
+* create a drop down menu for this later on. Include the different types of packages that we offer, along with being able to percure some of the different things that we have to offer; depending upon what mike & the rest of the project members think.*
+      <label for="Days_Spaw">Choose your option.</label>
+      <input type="menu" name="Days_Spaw" id="Days_Spaw">
+      <option value="doggy-day-spa">Doggy Day Spa</option><option value="doggy-day-spa2">Doggy-day-spa2</option><option value="Doggy-day-spa3">Doggy day spa3</option><option value="Doggy-day-spa4">Doggy day spa4</option><option value="Doggy-day-spa5">Doggy day spa5</option>
+    </div>
+    <div class="field">
+      <label for="message">message for Day Spaw</label>
+      <input type="text" name="message" id="message">
+    </div>
+    <div class="field">
+      <label for="reply_to">reply_to</label>
+      <input type="text" name="reply_to" id="reply_to">
+    </div>
+    <div class="Dropdown-menu">
+        <label for="option-choice">reply to</label>"Option-choice"</label>
+        <input type="menu" name="menu" id="menu">
+    </div>
+  
+    <input type="submit" id="button" value="Submit information" >
+  </form>
+  
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  
+  <script type="text/javascript">
+    emailjs.init('user_JxDp5IE02bxqBXlqpj9ru')
+  </script>
+
+<link="script.js">
