@@ -1,6 +1,6 @@
 :root {
      /* Color vars */
-     --primary-color: #2e3541;
+     --primary-color: #303d55;
      --secondary-color: #26a69a;
      --tertiary-color: #393e46;
      --accent-color: #eeeeee;
@@ -19,6 +19,7 @@ main {
      flex: 1 0 auto;
 }
 
+/* Title container */
 #header {
      height: 8em;
      position: relative;
@@ -28,9 +29,9 @@ main {
      justify-content: center;
      align-items: center;
      font-family: var(--header-font);
-     position: relative;
 }
 
+/* Title text */
 #title {
      font-size: 50px;
      letter-spacing: 0.05em;
@@ -43,13 +44,14 @@ main {
      padding-bottom: 8px;
 }
 
+/* Pre-conditions for intro animation */
 #title::before {
      content: '';
      width: 0%;
      height: 35px;
      background-color: var(--primary-color);
      position: absolute;
-     animation: 3s underline ease-in-out forwards 2.2s;
+     animation: 2s underline ease-in-out forwards 1.5s;
      mix-blend-mode: saturation;
      bottom: 27px;
 }
@@ -67,19 +69,102 @@ main {
      animation: .5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
 }
 
+/* Paws imgs positioning and animation */
+.float-left {
+     float: left;
+}
+
+.float-right {
+     float: right;
+}
+
+#left-paw {
+     height: 2em;
+     width: 2em;
+     z-index: 15;
+     margin-right: 11px;
+}
+
+#right-paw {
+     height: 2em;
+     width: 2em;
+     z-index: 15;
+     margin-left: 10px;
+}
+
+.fade-in {
+     animation:  fadeIn 3s forwards 3s;
+     -webkit-animation:  fadeIn 3s forwards 3s;
+     -moz-animation:  fadeIn 3s forwards 3s;
+     -o-animation:  fadeIn 3s forwards 3s;
+     -ms-animation: fadeIn 3s forwards 3s;
+}
+
+@keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-moz-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-webkit-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-o-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-ms-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+/* Welcome, Employee text */
 .welcome {
      color: var(--tertiary-color);
 }
-
 .text-padding {
      margin-top: 50px;
      margin-bottom: 0px;
 }
 
+/* Button text font */
 #button-text {
      font-family: var(--header-font);
 }
 
+/* Keyframes defining intro animation for banner elements */
 @keyframes skewBg {
      0% {
           transform: scale(.1);
@@ -100,9 +185,11 @@ main {
      0% {
           transform: translateY(-400px)
      }
+
      50% {
           transform: translateY(-100px);
      }
+
      100% {
           transform: translateY(0px);
           opacity: 1;
