@@ -1,6 +1,6 @@
 :root {
      /* Color vars */
-     --primary-color: #222831;
+     --primary-color: #2e3541;
      --secondary-color: #26a69a;
      --tertiary-color: #393e46;
      --accent-color: #eeeeee;
@@ -20,7 +20,7 @@ main {
 }
 
 #header {
-     height: 7em;
+     height: 8em;
      position: relative;
      width: 100vw;
      display: flex;
@@ -32,7 +32,8 @@ main {
 }
 
 #title {
-     font-size: 45px;
+     font-size: 50px;
+     letter-spacing: 0.05em;
      color: var(--secondary-color);
      transform: translateY(-600px);
      animation: 1.2s slideIn ease-in-out forwards 1s;
@@ -45,12 +46,12 @@ main {
 #title::before {
      content: '';
      width: 0%;
-     height: 15px;
+     height: 35px;
      background-color: var(--primary-color);
      position: absolute;
      animation: 1s underline ease-in-out forwards 2s;
-     mix-blend-mode: screen;
-     bottom: 15px;
+     mix-blend-mode: saturation;
+     bottom: 27px;
 }
 
 .drawline {
