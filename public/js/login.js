@@ -8,18 +8,19 @@ const loginHandler = async (event) => {
    
      if (name && password) {
        // Send a POST request to the API endpoint to grab and deconstruct the body object 
-       const response = await fetch('/users', {
-         method: 'POST',
-         body: JSON.stringify({ name, password }),
-         headers: { 'Content-Type': 'application/json' },
-       });
+       const userMethod = {
+          method: 'POST',
+          body: JSON.stringify({ name, password }),
+          headers: { 'Content-Type': 'application/json' },
+        }
+       const response = await fetch('/api/users', userMethod);
    
-       if (response.ok) {
+          if (response.ok) {
          // If successful, redirect the browser to the profile page
-         document.location.replace('');
-       } else {
-         alert(response.statusText);
-       }
+         document.location.replace('main.handlebars');
+          } else {
+               alert(response.statusText);
+          }
      }
    };
    
