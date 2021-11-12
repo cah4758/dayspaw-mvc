@@ -13,10 +13,10 @@ router.get("/login", async (req, res) => {
   try {
   if (req.session.loggedIn) {
     res.redirect("/main");
-    return true;
+    return;
   }
   else {
-  res.render('login')}}
+  res.render('login.handlebars')}}
   catch(error) {
     console.error(error);
   }
