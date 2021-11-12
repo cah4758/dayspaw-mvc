@@ -10,12 +10,16 @@ router.get("/", async (req, res) => {
 // employee login
 router.get("/login", async (req, res) => {
   // If the user is already logged in, redirect the request to next page
-  if (req.session.logged_in) {
-    res.redirect("/schedules");
-    return;
+  try {
+  if (req.session.loggedIn) {
+    res.redirect("/main");
+    return true;
   }
-  else{
-  res.render('login')};
+  else {
+  res.render('login')}}
+  catch(error) {
+    console.error(error);
+  }
 });
 
 // post credentials and submit

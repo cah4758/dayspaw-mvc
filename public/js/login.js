@@ -1,3 +1,5 @@
+
+// Logging in
 const loginHandler = async (event) => {
   event.preventDefault();
      // Collect input field values
@@ -25,4 +27,18 @@ document
   .querySelector('#form')
   .addEventListener('submit', loginHandler);
 
+// -----------------------------------------------------------------------------
+// {Employee} field control
 
+
+const dualFill = function(event) {
+     event.preventDefault();
+
+}
+
+
+document.querySelector('#user').addEventListener('click', )
+
+
+
+// -----------------------------------------------------------------------------
