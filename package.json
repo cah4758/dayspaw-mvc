@@ -1,8 +1,11 @@
 {
-  "name": "Project2-DaySpaw",
+  "name": "project2-dayspaw",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test to see if Mike's branch works",
   "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -11,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/MikeMallonIT/Project2-DaySpaw.git"
   },
-  "keywords": [],
+
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -26,6 +29,8 @@
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3-rc.0",
-    "sequelize": "^6.9.0"
-  }
+    "sequelize": "^6.9.0,
+    "handlebars": "^4.7.7",
+    "materialize-css": "^1.0.0-rc.2"
+  },
 }
