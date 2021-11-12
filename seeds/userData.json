@@ -11,17 +11,17 @@
   },
   {
     "name": "Shane",
-    "email": "shane@gmail.com.com",
+    "email": "shane@gmail.com",
     "password": "password12345"
   },
   {
     "name": "Josh",
-    "email": "josh@gmail.com.com",
+    "email": "josh@gmail.com",
     "password": "password12345"
   },
   {
     "name": "Test",
-    "email": "test@gmail.com.com",
+    "email": "test@gmail.com",
     "password": "password12345"
   }
 ]

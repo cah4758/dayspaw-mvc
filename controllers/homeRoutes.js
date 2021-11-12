@@ -1,21 +1,25 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.post("/", async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+// redirects to the login page
+router.get("/", async (req, res) => {
+  res.redirect("/login");
 });
 
+// employee login
+router.get("/login", async (req, res) => {
+  res.send("login here");
+  // If the user is already logged in, redirect the request to next page
+  if (req.session.logged_in) {
+    res.redirect("/schedules");
+    return;
+  }
+
+  res.render("login");
+});
+
+// post credentials and submit
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
@@ -47,14 +51,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+// display schedule route
+router.get("/schedule", withAuth, async (req, res) => {});
 
 module.exports = router;
