@@ -16,7 +16,7 @@ body {
 }
 
 main {   
-     /* flex: 1 0 auto; */
+     flex: 1 0 auto;
      
 }
 
@@ -43,7 +43,7 @@ main {
      letter-spacing: 0.05em;
      color: var(--secondary-color);
      transform: translateY(-600px);
-     animation: 1s slideIn ease-in-out forwards 1s;
+     animation: 1.2s slideIn ease-in-out forwards 0.2s;
      z-index: 10;
      opacity: 0;
      position: relative;
@@ -57,7 +57,7 @@ main {
      height: 35px;
      background-color: var(--primary-color);
      position: absolute;
-     animation: 2s underline ease-in-out forwards 1.5s;
+     animation: 1.7s underline ease-in-out forwards 1s;
      mix-blend-mode: saturation;
      bottom: 27px;
 }
@@ -72,7 +72,7 @@ main {
      right: 0;
      background-color: var(--primary-color);
      transform: scale(.5);
-     animation: .5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+     animation: 0s slideIn ease-in-out forwards, .8s expandBg ease-in-out;
 }
 
 /* Paws imgs positioning and animation */
@@ -101,11 +101,11 @@ main {
 }
 
 .fade-in {
-     animation: fadeIn 3s forwards 3s;
-     -webkit-animation: fadeIn 3s forwards 3s;
-     -moz-animation: fadeIn 3s forwards 3s;
-     -o-animation: fadeIn 3s forwards 3s;
-     -ms-animation: fadeIn 3s forwards 3s;
+     animation: fadeIn 6s forwards 2.3s;
+     -webkit-animation: fadeIn 6s forwards 2.3s;
+     -moz-animation: fadeIn 6s forwards 2.3s;
+     -o-animation: fadeIn 6s forwards 2.3s;
+     -ms-animation: fadeIn 6s forwards 2.3s;
 }
 
 @keyframes fadeIn {
@@ -172,10 +172,34 @@ main {
 #button-text {
      font-family: var(--header-font);
 }
+#faderSub {
+     animation: fadeIn 4s forwards 0s;
+     -webkit-animation: fadeIn 4s forwards 0s;
+     -moz-animation: fadeIn 6s forwards 2.3s;
+     -o-animation: fadeIn 6s forwards 2.3s;
+     -ms-animation: fadeIn 6s forwards 2.3s;
+}
+#faderPls {
+     animation: fadeIn 4s forwards 2.3s;
+     -webkit-animation: fadeIn 4s forwards 0s;
+     -moz-animation: fadeIn 6s forwards 2.3s;
+     -o-animation: fadeIn 6s forwards 2.3s;
+     -ms-animation: fadeIn 6s forwards 2.3s;
+}
 
 /* Keyframes defining intro animation for banner elements */
-/* Lots of ignorable redundancy here due to meeting accessibility standards */
-@keyframes skewBg {
+/* Lots of ignorable redundancy here due to accessibility standards */
+@keyframes expandBg {
+     0% {
+          transform: scale(0);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
+@-moz-keyframes expandBg {
      0% {
           transform: scale(.1);
      }
@@ -185,7 +209,7 @@ main {
      }
 }
 
-@-moz-keyframes skewBg {
+@-webkit-keyframes expandBg {
      0% {
           transform: scale(.1);
      }
@@ -195,7 +219,7 @@ main {
      }
 }
 
-@-webkit-keyframes skewBg {
+@-o-keyframes expandBg {
      0% {
           transform: scale(.1);
      }
@@ -205,17 +229,7 @@ main {
      }
 }
 
-@-o-keyframes skewBg {
-     0% {
-          transform: scale(.1);
-     }
-
-     100% {
-          transform: scale(1);
-     }
-}
-
-@-ms-keyframes skewBg {
+@-ms-keyframes expandBg {
      0% {
           transform: scale(.1);
      }
@@ -257,13 +271,13 @@ main {
 
 @keyframes slideIn {
      0% {
-          transform: translateY(-400px)
+          transform: translateY(-200px);
+          opacity: 0;
      }
 
      50% {
           transform: translateY(-100px);
      }
-
      100% {
           transform: translateY(0px);
           opacity: 1;
@@ -308,7 +322,6 @@ main {
      50% {
           transform: translateY(-100px);
      }
-
      100% {
           transform: translateY(0px);
           opacity: 1;
