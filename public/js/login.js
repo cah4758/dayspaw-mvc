@@ -13,11 +13,11 @@ const loginHandler = async (event) => {
           body: JSON.stringify({ name, password }),
           headers: { 'Content-Type': 'application/json' },
         }
-       const response = await fetch('/api/users', userMethod);
-   
+       const response = await fetch('/api/users/login', userMethod);
+        console.log(response)
           if (response.ok) {
          // If successful, redirect the browser to the profile page
-         document.location.replace('main.handlebars');
+         document.location.replace('/views/layouts/main.handlebars');
           } else {
                alert(response.statusText);
           }

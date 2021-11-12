@@ -12,11 +12,11 @@ router.get("/login", async (req, res) => {
   // If the user is already logged in, redirect the request to next page
   try {
     if (req.session.loggedIn) {
-    res.redirect('view', { layout: 'main'});
+    res.redirect('layouts/main');
     return;
   }
     else {
-  res.render('view', { layout: 'login'})};
+  res.render('layouts/login')};
   }
   catch(error) {
     console.error(error);
