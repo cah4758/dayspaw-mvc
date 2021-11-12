@@ -15,8 +15,14 @@ body {
      background: var(--accent-color);
 }
 
-main {
-     flex: 1 0 auto;
+main {   
+     /* flex: 1 0 auto; */
+     
+}
+
+#subprime {
+     text-align: center;
+     
 }
 
 /* Title container */
@@ -70,19 +76,20 @@ main {
 }
 
 /* Paws imgs positioning and animation */
-.float-left {
+/* .float-left {
      float: left;
 }
 
 .float-right {
      float: right;
-}
+} */
 
 #left-paw {
      height: 2em;
      width: 2em;
      z-index: 15;
      margin-right: 11px;
+     float: left;
 }
 
 #right-paw {
@@ -90,13 +97,14 @@ main {
      width: 2em;
      z-index: 15;
      margin-left: 10px;
+     float: right;
 }
 
 .fade-in {
-     animation:  fadeIn 3s forwards 3s;
-     -webkit-animation:  fadeIn 3s forwards 3s;
-     -moz-animation:  fadeIn 3s forwards 3s;
-     -o-animation:  fadeIn 3s forwards 3s;
+     animation: fadeIn 3s forwards 3s;
+     -webkit-animation: fadeIn 3s forwards 3s;
+     -moz-animation: fadeIn 3s forwards 3s;
+     -o-animation: fadeIn 3s forwards 3s;
      -ms-animation: fadeIn 3s forwards 3s;
 }
 
@@ -154,6 +162,7 @@ main {
 .welcome {
      color: var(--tertiary-color);
 }
+
 .text-padding {
      margin-top: 50px;
      margin-bottom: 0px;
@@ -165,6 +174,7 @@ main {
 }
 
 /* Keyframes defining intro animation for banner elements */
+/* Lots of ignorable redundancy here due to meeting accessibility standards */
 @keyframes skewBg {
      0% {
           transform: scale(.1);
@@ -175,7 +185,71 @@ main {
      }
 }
 
+@-moz-keyframes skewBg {
+     0% {
+          transform: scale(.1);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
+@-webkit-keyframes skewBg {
+     0% {
+          transform: scale(.1);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
+@-o-keyframes skewBg {
+     0% {
+          transform: scale(.1);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
+@-ms-keyframes skewBg {
+     0% {
+          transform: scale(.1);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
 @keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-moz-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-webkit-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-o-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-ms-keyframes underline {
      100% {
           width: 100%;
      }
@@ -195,6 +269,68 @@ main {
           opacity: 1;
      }
 }
+
+@-moz-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-webkit-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-o-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-ms-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+
 
 .input-field input[type=date]:focus+label,
 .input-field input[type=text]:focus+label,
