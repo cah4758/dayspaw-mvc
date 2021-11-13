@@ -11,16 +11,14 @@ router.get("/", async (req, res) => {
 });
 
 // employee login
-router.get("/login", async (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to next page
   try {
-    if (req.session.loggedIn) {
-      ;
-      res.render('/layouts/homepage');
+    if (req.session.logged_in) {
+      res.redirect('main');
     } 
     else {
-      console.log(req.accepts('text/css'));
-      res.render('layouts/main')
+      res.render('login')
     };
   } catch (error) {
     console.error(error);
@@ -28,8 +26,7 @@ router.get("/login", async (req, res) => {
   return;
 });
 
-// post credentials and submit
-router.post("/login", async (req, res) => {
+router.get("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
@@ -70,6 +67,26 @@ router.post("/login", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.get('/main', (req, res) => {
+  // If the user is already logged in, redirect the request to next page
+  try {
+    if (req.session.logged_in) {
+      res.render('layouts/main');
+      return;   
+    }
+    else {
+      
+    };
+  } catch (error) {
+    console.error(error);
+  }
+  return;
+});
+
+
+
+
 
 // display schedule route
 router.get("/schedule", withAuth, async (req, res) => {});

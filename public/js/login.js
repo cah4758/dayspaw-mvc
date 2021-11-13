@@ -20,9 +20,7 @@ const loginHandler = async (event) => {
                }
                const response = await fetch('/api/users/login', userMethod);
                if (response.ok) {
-                    req.session.loggedIn = true;
-                    document.location.replace('/views/layouts/main.handlebars');
-                    
+                    document.location.replace('/homepage')
                } else {
                     alert(response.statusText);
                }
