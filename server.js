@@ -25,7 +25,7 @@ const sess = {
   store: new SequelizeStore({
     db: sequelize,
   }),
-  maxAge: Date.now() + Math.pow(60, 2)
+  maxAge: Date.now() + 6
 };
 // Starts the session
 app.use(session(sess));

@@ -6,16 +6,16 @@ const {
 const withAuth = require("../utils/auth");
 // const headersFilter = require('../utils/middleware/headers');
 // redirects to the login page
-router.get("/", async (req, res) => {
-  res.redirect("/login");
-});
+// router.get("/", async (req, res) => {
+//   res.redirect("/login");
+// });
 
 // employee login
-router.get("/login", (req, res) => {
+router.get("/", (req, res) => {
   // If the user is already logged in, redirect the request to next page
   try {
     if (req.session.logged_in) {
-      res.redirect('main');
+      res.render('main');
     } 
     else {
       res.render('login')
@@ -27,13 +27,17 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/login", async (req, res) => {
+
+  if (!req.session.logged_in) {
+    res.render('login')
+  }
+  
   try {
     const userData = await User.findOne({
       where: {
         name: req.body.name
       }
     });
-
     if (!userData) {
       res
         .status(400)
@@ -57,7 +61,6 @@ router.get("/login", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
       res.json({
         user: userData,
         message: "You are now logged in!"
@@ -76,16 +79,11 @@ router.get('/main', (req, res) => {
       return;   
     }
     else {
-      
+      res.redirect('login')
     };
-  } catch (error) {
-    console.error(error);
-  }
-  return;
+  } 
+  catch (error) {console.error(error)};
 });
-
-
-
 
 
 // display schedule route

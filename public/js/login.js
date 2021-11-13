@@ -20,7 +20,7 @@ const loginHandler = async (event) => {
                }
                const response = await fetch('/api/users/login', userMethod);
                if (response.ok) {
-                    document.location.replace('/homepage')
+                    document.location.assign('/main')
                } else {
                     alert(response.statusText);
                }

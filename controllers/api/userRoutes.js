@@ -3,6 +3,7 @@ const {
   User
 } = require("../../models");
 
+
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -52,13 +53,17 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
+  console.log("userRoutes.post /logout")
+  try {
     req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+    res.status(204).end();
+      
+    })
+  } 
+  catch (error){throw "router.post route failed =(" + error}
+  });
+
 
 module.exports = router;
+
+// finally {res.redirect('login')}

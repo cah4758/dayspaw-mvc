@@ -191,51 +191,61 @@ main {
 /* Lots of ignorable redundancy here due to accessibility standards */
 @keyframes expandBg {
      0% {
-          transform: scale(0);
+          transform: scale(.1);
+          transform: opacity(.1)
      }
 
      100% {
           transform: scale(1);
+          transform: opacity(1)
      }
 }
 
 @-moz-keyframes expandBg {
      0% {
           transform: scale(.1);
+          transform: opacity(.1)
      }
 
      100% {
           transform: scale(1);
+          transform: opacity(1)
      }
 }
 
 @-webkit-keyframes expandBg {
      0% {
           transform: scale(.1);
+          transform: opacity(.1)
      }
 
      100% {
           transform: scale(1);
+          transform: opacity(1)
      }
 }
 
 @-o-keyframes expandBg {
      0% {
           transform: scale(.1);
+          transform: opacity(.1)
      }
 
      100% {
           transform: scale(1);
+          transform: opacity(1)
      }
 }
 
 @-ms-keyframes expandBg {
      0% {
           transform: scale(.1);
+          transform: opacity(.1)
      }
 
      100% {
           transform: scale(1);
+          transform: opacity(1)
      }
 }
 
