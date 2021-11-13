@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const PORT = require('../server');
 const {
   User
 } = require("../models");
@@ -11,15 +12,15 @@ router.get("/", async (req, res) => {
 
 // employee login
 router.get("/login", async (req, res) => {
-  res.setHeader('Content-Type', 'text/html')
   // If the user is already logged in, redirect the request to next page
   try {
-
     if (req.session.loggedIn) {
-      res.render('/layouts/homepage');      
+      ;
+      res.render('/layouts/homepage');
     } 
-    else {      
-      res.render('layouts/main')     
+    else {
+      console.log(req.accepts('text/css'));
+      res.render('layouts/main')
     };
   } catch (error) {
     console.error(error);
