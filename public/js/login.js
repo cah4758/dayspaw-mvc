@@ -1,37 +1,35 @@
 // Logging in
 const loginHandler = async (event) => {
      event.preventDefault();
-     // Collect input field values
+   
+     // Collect values from the login form
      const name = document.querySelector('#user').value.trim();
      const password = document.querySelector('#password').value.trim();
-
+   
      if (name && password) {
-          // Send a POST request to the API endpoint to grab and deconstruct the body object 
-          try {
-               
-               const userMethod = {
-                    method: 'POST',
-                    body: JSON.stringify({
-                         name,
-                         password
-                    }),
-                    headers: {
-                         'Content-Type': 'application/json'
-                    },
-               }
-               const response = await fetch('api/users/login', userMethod);
-               console.log(response);
-               if (response.ok) {
-                    document.location.replace('/');
-               } else {
-                    alert(response.statusText);
-               }
-          } catch (error) {
-               alert(response.statusText + 'Try seeding the database')
-          } 
+       try {
+       const response = await fetch('/api/users/login', {
+         method: 'POST',
+         body: JSON.stringify({
+           name,
+           password
+         }),
+         headers: {
+           'Content-Type': 'application/json'
+         },
+       });
+   
+       if (response.ok) {
+         // If successful, redirect the browser to the profile page
+         document.location.replace('/clients');
+       } else {
+         alert(response.statusText);
+       }}
+       catch(error) {
+         console.error(error);
+       }
      }
-};
-
+   };
 document
      .querySelector('#form')
      .addEventListener('submit', loginHandler);

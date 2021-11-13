@@ -26,31 +26,15 @@ router.get("/", (req, res) => {
   return;
 });
 
-router.get("/login", async (req, res) => {
-
-  if (!req.session.logged_in) {
-    res.render('login')
-  } else {
-    res.render('homepage');
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/clients');
+    return;
   }
+
+  res.render('login');
 });
-
-
-
-
-// router.get('/main', (req, res) => {
-//   // If the user is already logged in, redirect the request to next page
-//   try {
-//     if (req.session.logged_in) {
-//       res.render('layouts/main');
-//       return;   
-//     }
-//     else {
-//       res.redirect('login')
-//     };
-//   } 
-//   catch (error) {console.error(error)};
-// });
 
 
 // display schedule route
