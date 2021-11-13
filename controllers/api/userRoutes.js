@@ -21,6 +21,7 @@ router.post("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
+    console.log(req.body)
     const userName = await User.findOne({
       where: {
         name: req.body.name
@@ -38,7 +39,7 @@ router.post("/login", async (req, res) => {
       return;
     } else {
       req.session.save(() => {
-        req.session.user_id = userData.id;
+        // req.session.user_id = userData.id;
         req.session.logged_in = true;
 
         res.json({
@@ -57,7 +58,6 @@ router.post("/logout", (req, res) => {
   try {
     req.session.destroy(() => {
     res.status(204).end();
-      
     })
   } 
   catch (error){throw "router.post route failed =(" + error}
@@ -66,4 +66,3 @@ router.post("/logout", (req, res) => {
 
 module.exports = router;
 
-// finally {res.redirect('login')}

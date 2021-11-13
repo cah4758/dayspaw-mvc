@@ -8,6 +8,7 @@ const loginHandler = async (event) => {
      if (name && password) {
           // Send a POST request to the API endpoint to grab and deconstruct the body object 
           try {
+               
                const userMethod = {
                     method: 'POST',
                     body: JSON.stringify({
@@ -18,15 +19,16 @@ const loginHandler = async (event) => {
                          'Content-Type': 'application/json'
                     },
                }
-               const response = await fetch('/api/users/login', userMethod);
+               const response = await fetch('api/users/login', userMethod);
+               console.log(response);
                if (response.ok) {
-                    document.location.assign('/main')
+                    document.location.replace('/');
                } else {
                     alert(response.statusText);
                }
           } catch (error) {
                alert(response.statusText + 'Try seeding the database')
-          }
+          } 
      }
 };
 
