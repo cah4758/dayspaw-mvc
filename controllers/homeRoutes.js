@@ -1,38 +1,47 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const {
+  User
+} = require("../models");
 const withAuth = require("../utils/auth");
-const headersFilter = require('../utils/middleware/headers');
+// const headersFilter = require('../utils/middleware/headers');
 // redirects to the login page
 router.get("/", async (req, res) => {
   res.redirect("/login");
-  console.log(res.json({plain:true}));
 });
 
 // employee login
 router.get("/login", async (req, res) => {
+  res.setHeader('Content-Type', 'text/html')
   // If the user is already logged in, redirect the request to next page
   try {
+
     if (req.session.loggedIn) {
-    res.redirect('layouts/main');
-    return;
-  }
-    else {
-  res.render('layouts/login')};
-  }
-  catch(error) {
+      res.render('/layouts/homepage');      
+    } 
+    else {      
+      res.render('layouts/main')     
+    };
+  } catch (error) {
     console.error(error);
   }
+  return;
 });
 
 // post credentials and submit
 router.post("/login", async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { name: req.body.name } });
+    const userData = await User.findOne({
+      where: {
+        name: req.body.name
+      }
+    });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({
+          message: "Incorrect email or password, please try again"
+        });
       return;
     }
 
@@ -41,7 +50,9 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({
+          message: "Incorrect email or password, please try again"
+        });
       return;
     }
 
@@ -49,7 +60,10 @@ router.post("/login", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.json({
+        user: userData,
+        message: "You are now logged in!"
+      });
     });
   } catch (err) {
     res.status(400).json(err);

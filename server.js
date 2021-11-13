@@ -25,12 +25,14 @@ const sess = {
   store: new SequelizeStore({
     db: sequelize,
   }),
+  maxAge: Date.now() + Math.pow(60, 2)
 };
 // Starts the session
 app.use(session(sess));
 
+
+app.engine('handlebars', hbs.engine);
 app.set("view engine", "handlebars");
-app.engine('handlebars', hbs.engine)
 
 app.use(express.json());
 app.use(express.urlencoded({
