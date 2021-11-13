@@ -13,8 +13,9 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
-
+const hbs = exphbs.create({
+  helpers
+});
 // Setting up sessions with cookies into the database
 const sess = {
   secret: "Secret",
@@ -25,20 +26,21 @@ const sess = {
     db: sequelize,
   }),
 };
-
 // Starts the session
 app.use(session(sess));
 
 app.set("view engine", "handlebars");
-app.engine("handlebars", hbs.engine);
-
+app.engine('handlebars', hbs.engine)
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.static('public'));
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({
+  force: false
+}).then(() => {
   app.listen(PORT, () => console.log("🐶  Now listening *WOOF* 🐶"));
 });

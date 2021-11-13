@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
-
+const headersFilter = require('../utils/middleware/headers');
 // redirects to the login page
 router.get("/", async (req, res) => {
   res.redirect("/login");
+  console.log(res.json({plain:true}));
 });
 
 // employee login
