@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS dayspaw_db;
+<<<<<<< HEAD
 CREATE DATABASE dayspaw_db;
 
 USE dayspaw_db;
@@ -27,3 +28,6 @@ CREATE TABLE appointment (
     FOREIGN KEY (dog_id) REFERENCES dog(dog_id)
     ON DELETE SET NULL
 );
+=======
+CREATE DATABASE dayspaw_db;
+>>>>>>> main

@@ -11,7 +11,11 @@ const withAuth = require("../utils/auth");
 // });
 
 // employee login
+<<<<<<< HEAD
 router.get("/", (req, res) => {
+=======
+router.get("/login", async (req, res) => {
+>>>>>>> main
   // If the user is already logged in, redirect the request to next page
   try {
     if (req.session.logged_in) {
@@ -23,7 +27,12 @@ router.get("/", (req, res) => {
   } catch (error) {
     console.error(error);
   }
+<<<<<<< HEAD
   return;
+=======
+  res.send("login here");
+  // res.render("login");
+>>>>>>> main
 });
 
 router.get('/login', (req, res) => {
@@ -35,6 +44,20 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+<<<<<<< HEAD
+=======
+// post request for "/logout" route
+router.post("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.send("Bye!");
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+>>>>>>> main
 
 // display schedule route
 router.get("/schedule", withAuth, async (req, res) => {});

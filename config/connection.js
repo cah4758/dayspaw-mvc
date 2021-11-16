@@ -1,6 +1,6 @@
-const Sequelize = require("sequelize");
-require("dotenv").config();
-
+const Sequelize = require('sequelize');
+require('dotenv').config();
+// Create a connection object
 let sequelize;
 
 if (process.env.DAYSPAW_DB) {
