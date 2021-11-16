@@ -14,7 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/MikeMallonIT/Project2-DaySpaw.git"
   },
-
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -29,7 +28,7 @@
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3-rc.0",
-    "sequelize": "^6.9.0,",
+    "sequelize": "^6.9.0",
     "handlebars": "^4.7.7",
     "materialize-css": "^1.0.0-rc.2"
   }
