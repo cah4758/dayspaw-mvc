@@ -9,14 +9,13 @@ router.get("/", async (req, res) => {
 
 // employee login
 router.get("/login", async (req, res) => {
-  res.send("login here");
   // If the user is already logged in, redirect the request to next page
   if (req.session.logged_in) {
     res.redirect("/schedules");
     return;
   }
-
-  res.render("login");
+  res.send("login here");
+  // res.render("login");
 });
 
 // post credentials and submit
@@ -48,6 +47,18 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// post request for "/logout" route
+router.post("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.send("Bye!");
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
