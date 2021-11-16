@@ -18,9 +18,10 @@ router.post("/", async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  // console.log(this);
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
-
+    // console.log(req.session)
     if (!userData) {
       res
         .status(400)
@@ -29,34 +30,30 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
         res.render('login')
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+      req.session.logged_in = true;      
+      res.render('homepage')
     });
-
+    
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 router.post("/logout", (req, res) => {
-  console.log("userRoutes.post /logout")
   try {
     req.session.destroy(() => {
     res.status(204).end();
     })
   }
-  catch (error){throw "router.post route failed =(" + error}
+  catch (error){throw error + "post api/users/ logout route failed =("}
   });
 
 

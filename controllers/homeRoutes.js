@@ -32,7 +32,6 @@ router.get('/login', (req, res) => {
     res.redirect('/clients');
     return;
   }
-
   res.render('login');
 });
 

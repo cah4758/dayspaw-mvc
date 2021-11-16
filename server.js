@@ -30,7 +30,6 @@ const sess = {
 // Starts the session
 app.use(session(sess));
 
-
 app.engine('handlebars', exphbs());
 app.set("view engine", "handlebars");
 

@@ -1,9 +1,6 @@
 DROP DATABASE IF EXISTS dayspaw_db;
 CREATE DATABASE dayspaw_db;
 
-<<<<<<< HEAD
-DROP DATABASE IF EXISTS sequelize;
-=======
 USE dayspaw_db;
 
 CREATE TABLE customer (
@@ -30,4 +27,3 @@ CREATE TABLE appointment (
     FOREIGN KEY (dog_id) REFERENCES dog(dog_id)
     ON DELETE SET NULL
 );
->>>>>>> main
