@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
   // Get all customers from the customer table
   try{
     const allCustomers = await Customer.findAll()
-  
+    res.render('homepage');
   return res.json(allCustomers);
   }
 
@@ -14,6 +14,10 @@ router.get('/', async (req, res) => {
     res.json(err);
   }
 });
+
+router.get('/customers', async (req, res) => {
+  res.send('testing testing')
+})
   
 
 // GET a customer

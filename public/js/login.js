@@ -19,10 +19,11 @@ const loginHandler = async (event) => {
                          'Content-Type': 'application/json'
                     },
                }).then((response) => {
+                    console.log(response);
                if (response.ok) {
                     console.log(this)
                     // If successful, redirect the browser to the profile page
-                    document.location.replace('/clients');
+                    document.location.replace('/api/customers');
                     return true;
                } else {
                     alert(response.statusText);

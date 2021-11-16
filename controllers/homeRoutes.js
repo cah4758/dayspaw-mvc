@@ -6,25 +6,25 @@ const {
 const withAuth = require("../utils/auth");
 // const headersFilter = require('../utils/middleware/headers');
 // redirects to the login page
-// router.get("/", async (req, res) => {
-//   res.redirect("/login");
-// });
+router.get("/", (req, res) => {
+  res.redirect("/login");
+  return;
+});
 
 // employee login
-router.get("/login", async (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to next page
   try {
     if (req.session.logged_in) {
-      res.render('homepage');
+      res.render('homepage')
     } 
     else {
-      res.redirect('/login')
+      res.render("login");
     };
   } catch (error) {
     console.error(error);
   }
-  res.send("login here");
-  // res.render("login");
+  
 });
 
 // router.get('/login', (req, res) => {

@@ -2,7 +2,7 @@ const sequelize = require("../config/connection");
 const { User, Client } = require("../models");
 
 const userData = require("./userData.json");
-const clientData = require('./clients.json')
+// const clientData = require('./clients.json')
 // Can put dogdata as our second data source?
 
 const seedDatabase = async () => {
@@ -13,12 +13,12 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const client of clientData) {
-    await Client.create({
-      ...client,
-      user_id: Math.floor(Math.random())*users.length,
-    });
-  }
+  // for (const client of clientData) {
+  //   await Client.create({
+  //     ...client,
+  //     user_id: Math.floor(Math.random())*users.length,
+  //   });
+  // }
 
   process.exit(0);
 };

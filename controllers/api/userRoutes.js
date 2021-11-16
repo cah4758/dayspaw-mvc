@@ -18,10 +18,9 @@ router.post("/", async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  // console.log(this);
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
-    // console.log(req.session)
+    console.log(req.session)
     if (!userData) {
       res
         .status(400)
@@ -39,7 +38,8 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;      
-      res.render('homepage')
+      res.render('homepage');
+      // res.redirect('/customers')
     });
     
   } catch (err) {
