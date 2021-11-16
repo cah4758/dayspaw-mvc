@@ -1,0 +1,11 @@
+[
+    {
+      "appointment_time": "09:00",
+      "customer_id": "1"
+    },
+    {
+        "appointment_time": "13:00",
+        "customer_id": "3"
+    }
+]
+  

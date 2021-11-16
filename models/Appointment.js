@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// create appointment model
 class Appointment extends Model {}
 
-Customer.init(
+Appointment.init(
   {
     appointment_id: {
       type: DataTypes.INTEGER,
@@ -23,7 +24,7 @@ Customer.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'customer',
+    modelName: 'appointment',
   }
 );
 

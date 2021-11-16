@@ -1,11 +1,17 @@
 const sequelize = require("../config/connection");
-const { User } = require("../models");
+const { User, Appointment, Customer } = require('../models');
 
 const userData = require("./userData.json");
+const apptData = require("./appointmentData.json");
+const custData = require("./customerData.json");
 // Can put dogdata as our second data source?
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
+
+  await Appointment.bulkCreate(apptData);
+  await Customer.bulkCreate(custData);
+
 
   await User.bulkCreate(userData, {
     individualHooks: true,
@@ -14,5 +20,6 @@ const seedDatabase = async () => {
 
   process.exit(0);
 };
+
 
 seedDatabase();

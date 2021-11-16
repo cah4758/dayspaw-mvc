@@ -46,33 +46,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-// POST seed data for testing
-router.post('/seed', (req, res) => {
-  Customer.bulkCreate([
-    {
-      customer_first_name: 'Luke',
-      customer_last_name: 'Anderson',
-      customer_phone: '12148652214',
-      customer_email: 'luke@gmail.com',
-      dog_name: 'Zoey',
-    },
-    {
-      customer_first_name: 'Mitchell',
-      customer_last_name: 'Carlson',
-      customer_phone: '13095541120',
-      customer_email: 'mitchell@gmail.com',
-      dog_name: 'Grizzly',
-    },
-    {
-      customer_first_name: 'Mike',
-      customer_last_name: 'Mallon',
-      customer_phone: '18475620014',
-      customer_email: 'mallon128@gmail.com',
-      dog_name: 'Simba',
-    },
-  ]).then(() => {
-    res.send('Seeding Success!');
-  });
-});
-
 module.exports = router;
