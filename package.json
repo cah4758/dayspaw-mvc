@@ -14,7 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/MikeMallonIT/Project2-DaySpaw.git"
   },
-
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -22,18 +21,6 @@
   },
   "homepage": "https://github.com/MikeMallonIT/Project2-DaySpaw#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.4",
-    "express-session": "^1.17.2",
-    "materialize-css": "^1.0.0-rc.2",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5",
-    "bcrypt": "^5.0.0",
-    "connect-session-sequelize": "^7.0.4",
-    "dotenv": "^8.2.0"
-  }
-=======
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
@@ -41,9 +28,10 @@
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3-rc.0",
-    "sequelize": "^6.9.0,
+    "sequelize": "^6.9.0",
     "handlebars": "^4.7.7",
     "materialize-css": "^1.0.0-rc.2"
-  },
->>>>>>> 385fc151be0466eaf77187e459f36e5a79db609c
+  }
 }
+
+
