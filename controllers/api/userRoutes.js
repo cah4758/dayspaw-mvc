@@ -17,7 +17,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 router.post('/login', async (req, res) => {
+<<<<<<< HEAD
+=======
+  // console.log(this);
+=======
+router.get("/login", async (req, res) => {
+  res.render("login");
+});
+
+router.post("/login", async (req, res) => {
+>>>>>>> 94a484325afac43a37af460b1e8f050f8495c508
+>>>>>>> main
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
     console.log(req.session)
@@ -37,9 +49,19 @@ router.post('/login', async (req, res) => {
     }
     req.session.save(() => {
       req.session.user_id = userData.id;
+<<<<<<< HEAD
       req.session.logged_in = true;      
+<<<<<<< HEAD
       res.render('homepage');
       // res.redirect('/customers')
+=======
+      res.render('homepage')
+=======
+      req.session.logged_in = true;
+
+      res.redirect("/api/appointments/");
+>>>>>>> 94a484325afac43a37af460b1e8f050f8495c508
+>>>>>>> main
     });
     
   } catch (err) {
