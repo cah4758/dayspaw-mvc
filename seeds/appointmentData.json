@@ -1,0 +1,35 @@
+[
+    {
+      "appointment_time": "09:00",
+      "customer_id": "1"
+    },
+    {
+      "appointment_time": "10:00",
+      "customer_id": null
+    },
+    {
+      "appointment_time": "11:00",
+      "customer_id": null
+    },
+    {
+      "appointment_time": "12:00",
+      "customer_id": null
+    },
+    {
+        "appointment_time": "13:00",
+        "customer_id": "3"
+    },
+    {
+      "appointment_time": "14:00",
+      "customer_id": null
+    },
+    {
+      "appointment_time": "09:00",
+      "customer_id": null
+    },
+    {
+      "appointment_time": "09:00",
+      "customer_id": null
+    }
+]
+  

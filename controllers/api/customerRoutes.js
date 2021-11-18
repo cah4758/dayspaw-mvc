@@ -1,78 +1,48 @@
-const router = require('express').Router();
-const Customer = require('../../models/Customer');
+const router = require("express").Router();
+const Customer = require("../../models/Customer");
 
 // GET all customers
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   // Get all customers from the customer table
-  try{
-    const allCustomers = await Customer.findAll()
-  
-  return res.json(allCustomers);
-  }
+  try {
+    const allCustomers = await Customer.findAll();
 
-  catch(err) {
-    res.json(err);
+    const customers = allCustomers.map((customer) =>
+      customer.get({ plain: true })
+    );
+
+    res.render("customers", {
+      customers,
+    });
+  } catch (err) {
+    res.json(err + "Error here too, figure it out");
   }
 });
-  
 
 // GET a customer
-router.get('/:customer_id', async (req, res) => {
+router.get("/:customer_id", async (req, res) => {
   // Get one customer from the customer table
-  try{
+  try {
     const selectCustomers = await Customer.findOne({
-      where: { 
-        customer_id: req.params.customer_id 
+      where: {
+        customer_id: req.params.customer_id,
       },
     });
 
     return res.json(selectCustomers);
+  } catch (err) {
+    res.json(err);
   }
-
-  catch(err) {
-      res.json(err);
-    }  
 });
-  
+
 // POST new customer
-router.post('/', async (req, res) => {
-  try{
+router.post("/", async (req, res) => {
+  try {
     const newCustomerData = await Customer.create(req.body);
     res.status(200).json(newCustomerData);
-  } 
-
-  catch (err) {
-  res.status(400).json(err);
+  } catch (err) {
+    res.status(400).json(err);
   }
-});
-
-// POST seed data for testing
-router.post('/seed', (req, res) => {
-  Customer.bulkCreate([
-    {
-      customer_first_name: 'Luke',
-      customer_last_name: 'Anderson',
-      customer_phone: '12148652214',
-      customer_email: 'luke@gmail.com',
-      dog_name: 'Zoey',
-    },
-    {
-      customer_first_name: 'Mitchell',
-      customer_last_name: 'Carlson',
-      customer_phone: '13095541120',
-      customer_email: 'mitchell@gmail.com',
-      dog_name: 'Grizzly',
-    },
-    {
-      customer_first_name: 'Mike',
-      customer_last_name: 'Mallon',
-      customer_phone: '18475620014',
-      customer_email: 'mallon128@gmail.com',
-      dog_name: 'Simba',
-    },
-  ]).then(() => {
-    res.send('Seeding Success!');
-  });
 });
 
 module.exports = router;
