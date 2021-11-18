@@ -1,48 +1,47 @@
-const router = require('express').Router();
-const Customer = require('../../models/Customer');
+const router = require("express").Router();
+const Customer = require("../../models/Customer");
 
 // GET all customers
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   // Get all customers from the customer table
-  try{
-    const allCustomers = await Customer.findAll()
-  
-  return res.json(allCustomers);
-  }
+  try {
+    const allCustomers = await Customer.findAll();
 
-  catch(err) {
-    res.json(err);
+    const customers = allCustomers.map((customer) =>
+      customer.get({ plain: true })
+    );
+
+    res.render("customers", {
+      customers,
+    });
+  } catch (err) {
+    res.json(err + "Error here too, figure it out");
   }
 });
-  
 
 // GET a customer
-router.get('/:customer_id', async (req, res) => {
+router.get("/:customer_id", async (req, res) => {
   // Get one customer from the customer table
-  try{
+  try {
     const selectCustomers = await Customer.findOne({
-      where: { 
-        customer_id: req.params.customer_id 
+      where: {
+        customer_id: req.params.customer_id,
       },
     });
 
     return res.json(selectCustomers);
+  } catch (err) {
+    res.json(err);
   }
-
-  catch(err) {
-      res.json(err);
-    }  
 });
-  
+
 // POST new customer
-router.post('/', async (req, res) => {
-  try{
+router.post("/", async (req, res) => {
+  try {
     const newCustomerData = await Customer.create(req.body);
     res.status(200).json(newCustomerData);
-  } 
-
-  catch (err) {
-  res.status(400).json(err);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
