@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Appointment, Customer } = require("../../models");
+const withAuth = require('../../utils/auth')
 
 // GET all appointments
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   // Get all appointments from the appointments table
   try {
     const allAppointments = await Appointment.findAll({

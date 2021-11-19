@@ -25,6 +25,10 @@ main {
      
 }
 
+#nav-align {
+     align-items: center;
+     align-content: center;
+}
 /* Title container */
 #header {
      height: 8em;

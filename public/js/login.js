@@ -6,14 +6,14 @@ const loginFormHandler = async (event) => {
 
   try {
   if (name && password) {
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("api/users/login", {
       method: "POST",
       body: JSON.stringify({ name, password }),
       headers: { "Content-Type": "application/json" },
     });
     console.log(response)
     if (response.ok) {
-      document.location.replace("/api/appointments");
+      document.location.replace("/");
     } else {
       alert("Invalid username or password")
     }

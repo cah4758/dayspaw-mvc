@@ -11,17 +11,17 @@ router.get("/", async (req, res) => {
     res.redirect("/api/appointments");
     return;
   }
-  res.redirect("/api/users/login");
+  res.redirect("/login");
 });
 
 // employee login
 router.get("/login", async (req, res) => {
   // If the user is already logged in, redirect the request to next page
   if (req.session.logged_in) {
-    res.redirect("/schedules");
+    res.redirect("/appointments");
     return;
   }
-  // res.render("login");
+  res.render("login");
 });
 
 // post request for "/logout" route

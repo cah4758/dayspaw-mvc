@@ -19,10 +19,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/login", async (req, res) => {
-  res.render("login");
-});
-
 router.post("/login", async (req, res) => {
 
   const userData = await User.findOne({
@@ -50,7 +46,7 @@ router.post("/login", async (req, res) => {
   req.session.save(() => {
     req.session.user_id = userData.id;
     req.session.logged_in = true;
-    res.redirect("/api/appointments/");
+    res.redirect("../../api/appointments/");
   });
 })
 

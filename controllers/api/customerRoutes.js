@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const Customer = require("../../models/Customer");
+const withAuth = require('../../utils/auth')
 
 // GET all customers
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   // Get all customers from the customer table
   try{
     const allCustomers = await Customer.findAll()

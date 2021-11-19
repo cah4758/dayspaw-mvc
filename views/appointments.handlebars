@@ -1,8 +1,20 @@
-{{!-- Populate each appointment into a box --}}
 
+{{#if logged_in}}
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper">
+      <ul id="nav-align"class="center">
+        <li><a href="/appointments">Appointments</a></li>
+          <li><a href="/schedules">Schedules</a></li>
+          <li><a href="/customer">New Customer</a></li>
+          <li><a href="" id="logout">Logout</a></li>
+        </ul>
+    </div>
+  </nav>
+{{/if}}
+  {{!-- Populate each appointment into a box --}}
 {{#each appointments as |appointment| }}
-<div class="col s12 m7">
-    <h4 class="header">{{appointment_time}}</h4>
+<div class="col s12 m7 z-depth-1">
+    <h5 class="header">{{appointment_time}}</h5>
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
