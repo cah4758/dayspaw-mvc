@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const Customer = require("../../models/Customer");
+const withAuth = require('../../utils/auth')
 
 // GET all customers
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   // Get all customers from the customer table
-  try {
-    const allCustomers = await Customer.findAll();
-
+  try{
+    const allCustomers = await Customer.findAll()
     const customers = allCustomers.map((customer) =>
       customer.get({ plain: true })
     );
@@ -14,10 +14,12 @@ router.get("/", async (req, res) => {
     res.render("customers", {
       customers,
     });
-  } catch (err) {
+  }
+  catch (err) {
     res.json(err + "Error here too, figure it out");
   }
 });
+  
 
 // GET a customer
 router.get("/:customer_id", async (req, res) => {

@@ -1,10 +1,28 @@
-{{!-- Populate each appointment into a box --}}
 
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper brand-logo center">
+      <ul id="nav-align"class="center">
+          <li class="active"><a href="/appointments">Appointments</a></li>
+          <li><a href="/addAppt">Add Appointment</a></li>
+          <li><a href="/customers">New Customer</a></li>
+          <li><a href="" id="logout">Logout</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  {{!-- Populate each appointment into a box --}}
 {{#each appointments as |appointment| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h3>{{appointment_time}}</h3>
-    <h3>{{customer.dog_name}}</h3>
+<div class="col s12 m7 z-depth-2">
+    <h5 class="header" style="text-align: left; margin-left: 25px;">{{appointment_time}}</h5>
+    <div class="card horizontal" style="margin: auto 20px 10px">
+      <div class="card-stacked">
+        <div class="card-content">
+          <h3></h3>
+          <p>Doggie</p>
+        </div>
+        <div class="card-action">
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 {{/each}}

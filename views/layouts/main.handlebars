@@ -2,33 +2,49 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Spaw</title>
-  <link rel="stylesheet" href="/css/jass.css">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>| DaySpaw |</title>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     </link>
+     <link rel="stylesheet" href="/css/login.css">    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Mochiy+Pop+One&family=Prata&display=swap"
+          rel="stylesheet">
 </head>
 
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Dog Spaw
-    </h1>
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
 
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+<body>
+     <main>
+          <section id="subprime">
+               <div id='header'>
+                    <img src="/assets/images/paw-print.png" alt="doggy paw print" class="float-left fade-in"
+                         id="left-paw">
+                    <h1 id="title">DaySpaw</h1>
+                    <img src="/assets/images/paw-print.png" alt="doggy paw print" class="float-right fade-in"
+                         id="right-paw">
+                    <div class="banner"></div>
+               </div>
+
+               {{{body}}}
+
+          </section>
+
+
+          
+     </main>
+
+     <a id="form" href=""></a>
+     
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>     <script type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js" >
+     </script>
+     <script src="/js/login.js" ></script>
+     <script src="/js/logout.js"></script>
+
 </body>
 
 </html>

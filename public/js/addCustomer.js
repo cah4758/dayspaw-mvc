@@ -24,6 +24,6 @@
   };
   
   document
-    .querySelector('.signup-form')
+    .querySelector('#addCustomer')
     .addEventListener('submit', signupFormHandler);
   
