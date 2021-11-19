@@ -14,11 +14,43 @@ router.get("/", async (req, res) => {
   res.redirect("/login");
 });
 
+router.get("/addAppt", async (req, res) => {
+  if (req.session.logged_in) {
+       res.redirect("/api/addAppt");
+       return;
+  }
+  res.redirect("/login")
+});
+
+router.get("/appointments", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/api/appointments");
+    return;
+  }
+  res.redirect("/login")
+});
+
+router.get("/addAppt", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/api/addAppt");
+    return;
+  }
+  res.redirect("/login")
+});
+
+router.get("/customers", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/api/customers");
+    return;
+  }
+  res.redirect("/login");
+})
+
 // employee login
 router.get("/login", async (req, res) => {
   // If the user is already logged in, redirect the request to next page
   if (req.session.logged_in) {
-    res.redirect("/appointments");
+    res.redirect("/api/appointments");
     return;
   }
   res.render("login");
@@ -37,6 +69,6 @@ router.post("/logout", (req, res) => {
 });
 
 // display schedule route
-router.get("/schedule", withAuth, async (req, res) => {});
+
 
 module.exports = router;

@@ -5,20 +5,27 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector("#password-login").value.trim();
 
   try {
-  if (name && password) {
-    const response = await fetch("api/users/login", {
-      method: "POST",
-      body: JSON.stringify({ name, password }),
-      headers: { "Content-Type": "application/json" },
-    });
-    console.log(response)
-    if (response.ok) {
-      document.location.replace("/");
-    } else {
-      alert("Invalid username or password")
+    if (name && password) {
+      const response = await fetch("api/users/login", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          password
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+      console.log(response)
+      if (response.ok) {
+        document.location.replace("/");
+      } else {
+        alert("Invalid username or password")
+      }
     }
-  }}
-  catch (error) {console.error(error)};
+  } catch (error) {
+    console.error(error)
+  };
 };
 
 document

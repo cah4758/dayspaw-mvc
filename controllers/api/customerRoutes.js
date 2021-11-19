@@ -7,7 +7,6 @@ router.get("/", withAuth, async (req, res) => {
   // Get all customers from the customer table
   try{
     const allCustomers = await Customer.findAll()
-    res.render('homepage');
     const customers = allCustomers.map((customer) =>
       customer.get({ plain: true })
     );
@@ -15,16 +14,11 @@ router.get("/", withAuth, async (req, res) => {
     res.render("customers", {
       customers,
     });
-  return res.json(allCustomers);
   }
   catch (err) {
     res.json(err + "Error here too, figure it out");
   }
 });
-
-router.get('/customers', async (req, res) => {
-  res.send('testing testing')
-})
   
 
 // GET a customer

@@ -22,13 +22,12 @@ main {
 
 #subprime {
      text-align: center;
-     
 }
 
-#nav-align {
-     align-items: center;
-     align-content: center;
-}
+/* #dropdown {
+     max-width: 40%;
+} */
+
 /* Title container */
 #header {
      height: 8em;
