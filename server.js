@@ -45,5 +45,3 @@ sequelize.sync({
 }).then(() => {
   app.listen(PORT, () => console.log("🐶  Now listening *WOOF* 🐶"));
 });
-
-module.exports = PORT;
