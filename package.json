@@ -27,9 +27,10 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
-    "mysql2": "^2.3.3-rc.0",
-    "sequelize": "^6.9.0",
     "handlebars": "^4.7.7",
-    "materialize-css": "^1.0.0-rc.2"
+    "materialize-css": "^1.0.0-rc.2",
+    "mysql2": "^2.3.3-rc.0",
+    "nodemailer": "^6.7.1",
+    "sequelize": "^6.9.0"
   }
 }
