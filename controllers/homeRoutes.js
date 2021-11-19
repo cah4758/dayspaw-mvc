@@ -4,51 +4,51 @@ const withAuth = require("../utils/auth");
 
 // redirects to the login page
 router.get("/", async (req, res) => {
-  res.redirect("/login");
+  res.redirect("/api/users/login");
 });
 
-// employee login
-router.get("/login", async (req, res) => {
-  // If the user is already logged in, redirect the request to next page
-  if (req.session.logged_in) {
-    res.redirect("/schedules");
-    return;
-  }
-  res.send("login here");
-  // res.render("login");
-});
+// // employee login
+// router.get("/login", async (req, res) => {
+//   // If the user is already logged in, redirect the request to next page
+//   if (req.session.logged_in) {
+//     res.redirect("/schedules");
+//     return;
+//   }
+//   res.send("login here");
+//   // res.render("login");
+// });
 
-// post credentials and submit
-router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { name: req.body.name } });
+// // post credentials and submit
+// router.post("/login", async (req, res) => {
+//   try {
+//     const userData = await User.findOne({ where: { name: req.body.name } });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
+//     if (!userData) {
+//       res
+//         .status(400)
+//         .json({ message: "Incorrect email or password, please try again" });
+//       return;
+//     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+//     const validPassword = await userData.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
+//     if (!validPassword) {
+//       res
+//         .status(400)
+//         .json({ message: "Incorrect email or password, please try again" });
+//       return;
+//     }
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//       res.json({ user: userData, message: "You are now logged in!" });
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // post request for "/logout" route
 router.post("/logout", (req, res) => {

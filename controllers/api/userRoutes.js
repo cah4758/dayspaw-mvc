@@ -16,6 +16,10 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/login", async (req, res) => {
+  res.render("login");
+});
+
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
@@ -40,7 +44,7 @@ router.post("/login", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.redirect("/api/appointments/");
     });
   } catch (err) {
     res.status(400).json(err);
