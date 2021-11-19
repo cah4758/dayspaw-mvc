@@ -30,5 +30,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
+    "handlebars": "^4.7.7",
+    "nodemailer": "^6.7.1",
+    "sequelize": "^6.9.0"
   }
 }
