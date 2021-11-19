@@ -1,4 +1,4 @@
-const newFormHandler = async (event) => {
+const addAppointment = async (event) => {
     event.preventDefault();
   
     const firstName = document.querySelector('#appointment-firstName').value.trim();
@@ -23,4 +23,7 @@ const newFormHandler = async (event) => {
     }
   };
 
-//** NEED TO GET SCHEDULE AND DISPLAY **/
+
+  function myFunction(){
+    console.log("Testing my function");
+  }
