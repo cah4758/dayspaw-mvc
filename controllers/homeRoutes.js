@@ -8,7 +8,7 @@ const withAuth = require("../utils/auth");
 // redirects to the login page
 router.get("/", async (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/schedules");
+    res.redirect("/api/appointments");
     return;
   }
   res.redirect("/api/users/login");
