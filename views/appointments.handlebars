@@ -32,18 +32,9 @@
   </ul>
 
   {{!-- Populate each appointment into a box --}}
+
 {{#each appointments as |appointment| }}
-<<<<<<< HEAD
-<form value="{{customer_id}}" id="notifyForm">
-  <div class="col s12 m7 z-depth-2">
-    <h5 class="header" style="text-align: left; margin-left: 12%;">{{appointment_time}}</h5>
-    <div class="card horizontal" style="margin: auto 10% 10px">
-      <div class="card-stacked">
-        <div class="card-content">
-          <h3></h3>
-          <p>Doggie</p>
-          <p value="{{customer.customer_id}}"></p>
-=======
+<form class="notifyForm">
 <div class="col s12 m7 z-depth-2">
     <h5 class="header" style="text-align: left; margin-left: 25px;">{{appointment_time}}:00</h5>
     <div class="card horizontal" style="margin: auto 20px 10px">
@@ -51,18 +42,18 @@
         <div class="card-content">
           <h3 id="customer" value="{{customer.customer_id}}">{{customer.customer_first_name}} {{customer.customer_last_name}}</h3>
           <p>{{customer.dog_name}}</p>
->>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
         </div>
         <div class="card-action">
         </div>
       </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-          Notify
+        <button class="btn waves-effect waves-light" type="submit" name="action">Notify
+          <a href="/appointments/{{customer.customer_id}}"></a>
         </button>
         <p></p>
     </div>
   </div>
 </form>
 {{/each}}
+
 
 <script src="/js/appointments.js"></script>

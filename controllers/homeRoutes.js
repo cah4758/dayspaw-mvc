@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const PORT = require("../server");
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 // const headersFilter = require('../utils/middleware/headers');

@@ -3,18 +3,6 @@
           src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js" >
      </script>
 
-<<<<<<< HEAD
-
-
-
-  <nav id=""class="teal lighten-2">
-    <div class="nav-wrapper brand-logo center">
-          <ul id=""class="center">
-            <li ><a href="/appointments">Appointments</a></li>
-            <li class="active"><a href="/addAppt">Add Appointment</a></li>
-            <li><a href="/customers">New Customer</a></li>
-            <li><a href="" id="logout">Logout</a></li>
-=======
   {{!-- <nav class="teal lighten-2">
     <div class="nav-extended nav-wrapper brand-logo center">
       <ul id=""class="center">
@@ -22,7 +10,6 @@
           <li class="active"><a href="/addAppt">Add Appointment</a></li>
           <li><a href="/customers">New Customer</a></li>
           <li><a href="" id="logout">Logout</a></li>
->>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
         </ul>
     </div>
   </nav> --}}
@@ -40,58 +27,17 @@
     </div>
   </nav>
 
-<<<<<<< HEAD
-=======
   <ul class="sidenav" id="mobile-links">
     <li ><a href="/appointments">Appointments</a></li>
     <li class="active"><a href="/addAppt">Add Appointment</a></li>
     <li><a href="/customers">New Customer</a></li>
     <li><a href="" id="logout">Logout</a></li>
   </ul>
->>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
 
 <br>
 <br>
 <br>
 
-<<<<<<< HEAD
-
-<form id= "apptSubmit">
-    <div class="row">
-    <div id="appointment-name" class="input-field col s12 m6">
-        <select  id="select-name" class="browser-default">
-          <option value="">Select Customer</option>
-          {{#each customers as |customer|}}
-          <option  id="name-option" value="">{{customer_first_name}} {{customer_last_name}}</option>
-          {{/each}}
-        </select>
-    </div>
-
-    <div id="appointment-time" class="input-field col s12 m6">
-        <select class="browser-default" id="select-time">
-          <option id="time-option"value="" >Choose Appointment Time</option>
-          <option value="9:00">9:00</option>
-          <option value="10:00">10:00</option>
-          <option value="11:00">11:00</option>
-          <option value="12:00">12:00</option>
-          <option value="13:00">13:00</option>
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
-          <option value="16:00">16:00</option>
-          <option value="17:00">17:00</option>
-        </select>      
-      </div>
-  </div>
-
-  <button id="addAppt" style="margin-top: 50px;" class="btn-small waves-effect waves-light" type="submit" name="apptSubmit">Submit
-      <i class="material-icons right">send</i>
-  </button>
-
-</form>
-
-<script src="/js/addAppt.js"></script>
-     
-=======
 {{!-- <script>
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
@@ -132,4 +78,3 @@
   </button>
 </form>
 <script src="/js/addAppt.js"></script>
->>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
