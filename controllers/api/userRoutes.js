@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const {
+  User
+} = require("../../models");
+
 
 router.post("/", async (req, res) => {
   try {
@@ -17,44 +20,45 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { name: req.body.name } });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
+  const userData = await User.findOne({
+    where: {
+      name: req.body.name
     }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
+  });
+  // console.log(req.session)
+  if (!userData) {
+    res
+      .status(400)
+      .json({
+        message: 'Incorrect email or password, please try again'
+      });
+    return;
   }
-});
+
+  const validPassword = await userData.checkPassword(req.body.password);
+  if (!validPassword) {
+    res
+      .status(400)
+    res.render('login')
+    return;
+  }
+  req.session.save(() => {
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+    res.redirect("/api/appointments/");
+  });
+})
 
 router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
+  try {
     req.session.destroy(() => {
       res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+    })
+  } catch (error) {
+    throw error + "post api/users/ logout route failed =("
   }
 });
+
 
 module.exports = router;

@@ -1,0 +1,367 @@
+:root {
+     /* Color vars */
+     --primary-color: #303d55;
+     --secondary-color: #26a69a;
+     --tertiary-color: #393e46;
+     --accent-color: #eeeeee;
+     /* Font-family vars */
+     --header-font: 'Mochiy Pop One', sans-serif;
+}
+
+body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+     background: var(--accent-color);
+}
+
+main {   
+     flex: 1 0 auto;
+     
+}
+
+#subprime {
+     text-align: center;
+}
+
+/* #dropdown {
+     max-width: 40%;
+} */
+
+/* Title container */
+#header {
+     height: 8em;
+     position: relative;
+     width: 100vw;
+     display: flex;
+     background-color: var(--accent-color);
+     justify-content: center;
+     align-items: center;
+     font-family: var(--header-font);
+}
+
+/* Title text */
+#title {
+     font-size: 50px;
+     letter-spacing: 0.05em;
+     color: var(--secondary-color);
+     transform: translateY(-600px);
+     animation: 1.2s slideIn ease-in-out forwards 0.2s;
+     z-index: 10;
+     opacity: 0;
+     position: relative;
+     padding-bottom: 8px;
+}
+
+/* Pre-conditions for intro animation */
+#title::before {
+     content: '';
+     width: 0%;
+     height: 35px;
+     background-color: var(--primary-color);
+     position: absolute;
+     animation: 1.7s underline ease-in-out forwards 1s;
+     mix-blend-mode: saturation;
+     bottom: 27px;
+}
+
+.banner {
+     position: absolute;
+     width: 100%;
+     top: 0;
+     bottom: 0;
+     opacity: 0;
+     left: 0;
+     right: 0;
+     background-color: var(--primary-color);
+     transform: scale(.5);
+     animation: 0s slideIn ease-in-out forwards, .8s expandBg ease-in-out;
+}
+
+/* Paws imgs positioning and animation */
+
+#left-paw {
+     height: 2em;
+     width: 2em;
+     z-index: 15;
+     margin-right: 11px;
+     float: left;
+}
+
+#right-paw {
+     height: 2em;
+     width: 2em;
+     z-index: 15;
+     margin-left: 10px;
+     float: right;
+}
+
+.fade-in {
+     animation: fadeIn 6s forwards 2.3s;
+     -webkit-animation: fadeIn 6s forwards 2.3s;
+     -moz-animation: fadeIn 6s forwards 2.3s;
+     -o-animation: fadeIn 6s forwards 2.3s;
+     -ms-animation: fadeIn 6s forwards 2.3s;
+}
+
+@keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-moz-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-webkit-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-o-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+@-ms-keyframes fadeIn {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+/* Welcome, Employee text */
+.welcome {
+     color: var(--tertiary-color);
+}
+
+.text-padding {
+     margin-top: 50px;
+     margin-bottom: 0px;
+}
+
+/* Button text font */
+#button-text {
+     font-family: var(--header-font);
+}
+#faderSub {
+     animation: fadeIn 4s forwards 0s;
+     -webkit-animation: fadeIn 4s forwards 0s;
+     -moz-animation: fadeIn 6s forwards 2.3s;
+     -o-animation: fadeIn 6s forwards 2.3s;
+     -ms-animation: fadeIn 6s forwards 2.3s;
+}
+#faderPls {
+     animation: fadeIn 4s forwards 2.3s;
+     -webkit-animation: fadeIn 4s forwards 0s;
+     -moz-animation: fadeIn 6s forwards 2.3s;
+     -o-animation: fadeIn 6s forwards 2.3s;
+     -ms-animation: fadeIn 6s forwards 2.3s;
+}
+
+/* Keyframes defining intro animation for banner elements */
+/* Lots of ignorable redundancy here due to accessibility standards */
+@keyframes expandBg {
+     0% {
+          transform: scale(.1);
+          transform: opacity(.1)
+     }
+
+     100% {
+          transform: scale(1);
+          transform: opacity(1)
+     }
+}
+
+@-moz-keyframes expandBg {
+     0% {
+          transform: scale(.1);
+          transform: opacity(.1)
+     }
+
+     100% {
+          transform: scale(1);
+          transform: opacity(1)
+     }
+}
+
+@-webkit-keyframes expandBg {
+     0% {
+          transform: scale(.1);
+          transform: opacity(.1)
+     }
+
+     100% {
+          transform: scale(1);
+          transform: opacity(1)
+     }
+}
+
+@-o-keyframes expandBg {
+     0% {
+          transform: scale(.1);
+          transform: opacity(.1)
+     }
+
+     100% {
+          transform: scale(1);
+          transform: opacity(1)
+     }
+}
+
+@-ms-keyframes expandBg {
+     0% {
+          transform: scale(.1);
+          transform: opacity(.1)
+     }
+
+     100% {
+          transform: scale(1);
+          transform: opacity(1)
+     }
+}
+
+@keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-moz-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-webkit-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-o-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@-ms-keyframes underline {
+     100% {
+          width: 100%;
+     }
+}
+
+@keyframes slideIn {
+     0% {
+          transform: translateY(-200px);
+          opacity: 0;
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-moz-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-webkit-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-o-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+@-ms-keyframes slideIn {
+     0% {
+          transform: translateY(-400px)
+     }
+
+     50% {
+          transform: translateY(-100px);
+     }
+
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+
+
+.input-field input[type=date]:focus+label,
+.input-field input[type=text]:focus+label,
+.input-field input[type=email]:focus+label,
+.input-field input[type=password]:focus+label {
+     color: var(--secondary-color);
+}
+
+.input-field input[type=date]:focus,
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+     border-bottom: 2px solid var(--secondary-color);
+     box-shadow: none;
+}

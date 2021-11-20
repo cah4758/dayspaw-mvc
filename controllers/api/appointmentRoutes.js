@@ -1,99 +1,105 @@
-const router = require('express').Router();
-const Appointment = require('../../models/Appointment');
+const router = require("express").Router();
+const { Appointment, Customer } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 const nodemailer = require("nodemailer");
 
 // GET all appointments
-router.get('/', async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   // Get all appointments from the appointments table
-  try{
-    const allAppointments = await Appointment.findAll()
-  
-  return res.json(allAppointments);
-  }
+  try {
+    const allAppointments = await Appointment.findAll({
+      include: {
+        model: Customer,
+        attributes: [
+          "dog_name",
+          "customer_first_name",
+          "customer_last_name",
+          "customer_id",
+        ],
+      },
+    });
 
-  catch(err) {
-    res.json(err);
+    const appointments = allAppointments.map((appointment) =>
+      appointment.get({ plain: true })
+    );
+
+    res.render("appointments", {
+      appointments,
+    });
+  } catch (err) {
+    res.json(err + " That ain't it, chief");
   }
 });
-  
 
 // GET a appointment
-router.get('/:appointment_time', async (req, res) => {
+router.get("/:appointment_time", withAuth, async (req, res) => {
   // Get one appointment from the appointment table
-  try{
+  try {
     const selectAppointment = await Appointment.findOne({
-      where: { 
-        appointment_time: req.params.appointment_time
+      where: {
+        appointment_time: req.params.appointment_time,
       },
     });
 
     return res.json(selectAppointment);
+  } catch (err) {
+    res.json(err);
   }
-
-  catch(err) {
-      res.json(err);
-    }  
 });
 
-
 // Updates appointment based on its droptime
-router.put('/:appointment_time', async (req, res) => {
-    // Calls the update method on the Appointment model
-    try{
-        const updateAppointment = await Appointment.update(
-        {
+router.put("/:appointment_time", withAuth, async (req, res) => {
+  // Calls the update method on the Appointment model
+  try {
+    const updateAppointment = await Appointment.update(
+      {
         // All the fields you can update and the data attached to the request body.
         appointment_time: req.body.appointment_time,
         customer_id: req.body.customer_id,
-        },
-        {
+      },
+      {
         // Gets the appointment time based on the time given in the request parameters
         where: {
-            appointment_time: req.params.appointment_time,
+          appointment_time: req.params.appointment_time,
         },
-    });
+      }
+    );
 
     return res.json(updateAppointment);
-    }
-
-    catch(err) {
-        res.json(err);
-      }  
+  } catch (err) {
+    res.json(err);
+  }
 });
 
-
-router.post('/:customer_id', async (req, res) => {
-
+router.post("/:customer_id", withAuth, async (req, res) => {
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'dayspaww@gmail.com',
-      pass: 'Project2!'
-    }
-  })
+      user: "dayspaww@gmail.com",
+      pass: "Project2!",
+    },
+  });
 
   customer = [
     {
-      "customer_first_name": "Mike",
-      "customer_last_name": "Mallon",
-      "customer_phone": 18475620014,
-      "customer_email": "mallon127@gmail.com",
-      "dog_name": "Simba"
-  }
+      customer_first_name: "Mike",
+      customer_last_name: "Mallon",
+      customer_phone: 18475620014,
+      customer_email: "mallon127@gmail.com",
+      dog_name: "Simba",
+    },
   ];
 
   console.log(customer);
 
-  try{
+  try {
     const info = await transporter.sendMail({
-
-
-    from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
-    to: `${customer[0].customer_email}, ${customer[0].customer_email}`,
-    subject: `${customer[0].dog_name} is ready to be picked up!`,
-    text: "Please come see us at 123 Main Street to pick up your furry friend!",
-    html: `
+      from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
+      to: `${customer[0].customer_email}, ${customer[0].customer_email}`,
+      subject: `${customer[0].dog_name} is ready to be picked up!`,
+      text: "Please come see us at 123 Main Street to pick up your furry friend!",
+      html: `
     
     <!DOCTYPE html>
     <html lang="en">
@@ -111,15 +117,11 @@ router.post('/:customer_id', async (req, res) => {
     </html>
     
     `,
-  });
-  return res.json(customer);
-
-  }
-  catch(err) {
+    });
+    return res.json(customer);
+  } catch (err) {
     res.json(err);
-  }  
-})
-
-
+  }
+});
 
 module.exports = router;

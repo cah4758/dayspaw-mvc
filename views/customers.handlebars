@@ -1,0 +1,93 @@
+{{!-- Populate each customer into a box --}}
+{{!-- Form Details: customer_first_name, customer_last_name, customer_phone, customer_email, dog_name --}}
+{{!-- <nav class="teal lighten-2">
+    <div class="nav-wrapper brand-logo center">
+      <ul id="nav-align"class="center">
+          <li class=""><a href="/appointments">Appointments</a></li>
+          <li><a href="/addAppt">Add Appointment</a></li>
+          <li class="active"><a href="/customers">New Customer</a></li>
+          <li><a href="" id="logout">Logout</a></li>
+        </ul>
+    </div>
+  </nav> --}}
+
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper">
+        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <div class="container">
+        <ul class="hide-on-med-and-down">
+          <li ><a href="/appointments">Appointments</a></li>
+          <li><a href="/addAppt">Add Appointment</a></li>
+          <li class="active"><a href="/customers">New Customer</a></li>
+          <li><a href="#" method="post"id="logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-links">
+    <li ><a href="/appointments">Appointments</a></li>
+    <li class="active"><a href="/addAppt">Add Appointment</a></li>
+    <li><a href="/customers">New Customer</a></li>
+    <li><a href="" id="logout">Logout</a></li>
+  </ul>
+
+<br>
+<br>
+<br>
+
+<h4>New Customer Registration</h4>
+<br>
+<br>
+  <div class="row">
+    <form class="col s12" id="addCustomer">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="dog_name" type="text" class="">
+          <label for="dog_name">Dog's Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="phone" type="tel" class="">
+          <label for="disabled">Phone #</label>
+        </div>
+      </div>     
+      <button id="button-text" style="margin: 10px auto 50px;" class="btn-small waves-effect waves-light" type="submit"   name="action">Submit
+          <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+<br>
+<h4>Current Customers</h4>
+<br>
+
+<ul class="collection">
+  {{#each customers as |customer| }}
+    <li class="collection-item">
+      <h4 class=""><strong>{{customer_first_name}} {{customer_last_name}}</strong></h4>
+      <p>{{customer_phone}} <br>
+         {{dog_name}}
+      </p>
+    </li>
+    {{/each}}
+</ul>
+
+
+  <script src="/js/addCustomer.js"></script>
