@@ -23,7 +23,7 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({
         customer_first_name,
         customer_last_name,
-        phone,
+        customer_phone,
         customer_email,
         dog_name,
       }),
@@ -33,7 +33,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/api/addAppt");
     } else {
-      alert(response.statusText);
+      alert(response.statusText + "not working here");
     }
   }
 };
