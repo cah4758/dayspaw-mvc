@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Appointment, Customer } = require("../../models");
-const withAuth = require('../../utils/auth')
+const withAuth = require("../../utils/auth");
 
 const nodemailer = require("nodemailer");
 
@@ -11,7 +11,7 @@ router.get("/", withAuth, async (req, res) => {
     const allAppointments = await Appointment.findAll({
       include: {
         model: Customer,
-        attributes: ["dog_name"],
+        attributes: ["dog_name", "customer_first_name", "customer_last_name"],
       },
     });
 
@@ -67,38 +67,34 @@ router.put("/:appointment_time", async (req, res) => {
   }
 });
 
-
-router.post('/:customer_id', async (req, res) => {
-
+router.post("/:customer_id", async (req, res) => {
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'dayspaww@gmail.com',
-      pass: 'Project2!'
-    }
-  })
+      user: "dayspaww@gmail.com",
+      pass: "Project2!",
+    },
+  });
 
   customer = [
     {
-      "customer_first_name": "Mike",
-      "customer_last_name": "Mallon",
-      "customer_phone": 18475620014,
-      "customer_email": "mallon127@gmail.com",
-      "dog_name": "Simba"
-  }
+      customer_first_name: "Mike",
+      customer_last_name: "Mallon",
+      customer_phone: 18475620014,
+      customer_email: "mallon127@gmail.com",
+      dog_name: "Simba",
+    },
   ];
 
   console.log(customer);
 
-  try{
+  try {
     const info = await transporter.sendMail({
-
-
-    from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
-    to: `${customer[0].customer_email}, ${customer[0].customer_email}`,
-    subject: `${customer[0].dog_name} is ready to be picked up!`,
-    text: "Please come see us at 123 Main Street to pick up your furry friend!",
-    html: `
+      from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
+      to: `${customer[0].customer_email}, ${customer[0].customer_email}`,
+      subject: `${customer[0].dog_name} is ready to be picked up!`,
+      text: "Please come see us at 123 Main Street to pick up your furry friend!",
+      html: `
     
     <!DOCTYPE html>
     <html lang="en">
@@ -116,15 +112,11 @@ router.post('/:customer_id', async (req, res) => {
     </html>
     
     `,
-  });
-  return res.json(customer);
-
-  }
-  catch(err) {
+    });
+    return res.json(customer);
+  } catch (err) {
     res.json(err);
-  }  
-})
-
-
+  }
+});
 
 module.exports = router;
