@@ -34,7 +34,7 @@
   {{!-- Populate each appointment into a box --}}
 
 {{#each appointments as |appointment| }}
-<form class="notifyForm">
+<form id="notifyForm">
 <div class="col s12 m7 z-depth-2">
     <h5 class="header" style="text-align: left; margin-left: 25px;">{{appointment_time}}:00</h5>
     <div class="card horizontal" style="margin: auto 20px 10px">
@@ -46,14 +46,16 @@
         <div class="card-action">
         </div>
       </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Notify
-          <a href="/appointments/{{customer.customer_id}}"></a>
+        <button class="btn waves-effect waves-light" type="submit" name="action" action="/api/apointments/{{customer.customer_id}}">
+          Notify
         </button>
         <p></p>
     </div>
   </div>
 </form>
+
 {{/each}}
 
-
 <script src="/js/appointments.js"></script>
+
+

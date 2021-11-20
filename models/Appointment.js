@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create appointment model
 class Appointment extends Model {}
 
 Appointment.init(
