@@ -3,7 +3,7 @@ const Appointment = require("../../models/Appointment");
 const Customer = require("../../models/Customer");
 const withAuth = require("../../utils/auth");
 
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     const allCustomers = await Customer.findAll();
 
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.put("/:appointment_time", async (req, res) => {
+router.put("/:appointment_time", withAuth, async (req, res) => {
   // Calls the update method on the Appointment model
   try {
     const updateAppointment = await Appointment.update(

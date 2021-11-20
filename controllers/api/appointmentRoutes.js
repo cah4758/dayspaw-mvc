@@ -11,7 +11,12 @@ router.get("/", withAuth, async (req, res) => {
     const allAppointments = await Appointment.findAll({
       include: {
         model: Customer,
-        attributes: ["dog_name", "customer_first_name", "customer_last_name"],
+        attributes: [
+          "dog_name",
+          "customer_first_name",
+          "customer_last_name",
+          "customer_id",
+        ],
       },
     });
 
@@ -28,7 +33,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // GET a appointment
-router.get("/:appointment_time", async (req, res) => {
+router.get("/:appointment_time", withAuth, async (req, res) => {
   // Get one appointment from the appointment table
   try {
     const selectAppointment = await Appointment.findOne({
@@ -44,7 +49,7 @@ router.get("/:appointment_time", async (req, res) => {
 });
 
 // Updates appointment based on its droptime
-router.put("/:appointment_time", async (req, res) => {
+router.put("/:appointment_time", withAuth, async (req, res) => {
   // Calls the update method on the Appointment model
   try {
     const updateAppointment = await Appointment.update(
@@ -67,7 +72,7 @@ router.put("/:appointment_time", async (req, res) => {
   }
 });
 
-router.post("/:customer_id", async (req, res) => {
+router.post("/:customer_id", withAuth, async (req, res) => {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
