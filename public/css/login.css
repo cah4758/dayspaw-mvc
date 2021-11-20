@@ -15,9 +15,9 @@ body {
      background: var(--accent-color);
 }
 
-main {   
+main {
      flex: 1 0 auto;
-     
+
 }
 
 #subprime {
@@ -168,6 +168,7 @@ main {
 #button-text {
      font-family: var(--header-font);
 }
+
 #faderSub {
      animation: fadeIn 4s forwards 0s;
      -webkit-animation: fadeIn 4s forwards 0s;
@@ -175,6 +176,7 @@ main {
      -o-animation: fadeIn 6s forwards 2.3s;
      -ms-animation: fadeIn 6s forwards 2.3s;
 }
+
 #faderPls {
      animation: fadeIn 4s forwards 2.3s;
      -webkit-animation: fadeIn 4s forwards 0s;
@@ -284,6 +286,7 @@ main {
      50% {
           transform: translateY(-100px);
      }
+
      100% {
           transform: translateY(0px);
           opacity: 1;
@@ -328,6 +331,7 @@ main {
      50% {
           transform: translateY(-100px);
      }
+
      100% {
           transform: translateY(0px);
           opacity: 1;
@@ -364,4 +368,19 @@ main {
 .input-field input[type=password]:focus {
      border-bottom: 2px solid var(--secondary-color);
      box-shadow: none;
+}
+
+
+@media screen and (max-width: 920px) {
+     nav {
+          display: flex;
+          justify-content: space-around;
+     }
+     .nav-wrapper {
+          justify-content: space-around;
+          display: flex;
+     }
+     
+
+
 }

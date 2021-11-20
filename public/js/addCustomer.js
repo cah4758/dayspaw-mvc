@@ -16,7 +16,7 @@
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/customers');
       } else {
         alert(response.statusText);
       }

@@ -1,26 +1,28 @@
+
 const apptHandler = async (event) => {
      event.preventDefault();
      console.log(event)
      try{
-     const time = document.querySelector('#appointment-time').value.trim();
-     const name = document.querySelector('#appointment-name').value.trim();
-     const firstLast = name.split(" ");
-     console.log(firstLast);
-     const firstName = firstLast[0];
-     const lastName = firstLast[1];
+        let name = document.querySelector('#select-name');
+        let time = document.querySelector('#select-time');
+        name = name.textContent;
+        time = time.textContent;
 
-     if (firstName && lastName && time) {
+        console.log(name);
+        console.log(time);
+        
+     if (name && time) {
        const response = await fetch(`/api/appointments/${time}`, {
          method: 'PUT',
          //** NEED TO LOOK UP CUSTOMER ID BASED ON FIRST? LAST NAME AND SEND THAT */
-         body: JSON.stringify({ time, customer }),
+         body: JSON.stringify({ name, time }),
          headers: {
            'Content-Type': 'application/json',
          },
        });
    
        if (response.ok) {
-         document.location.replace('/profile');
+        //  document.location.replace('/appointments');
        } else {
          alert('Failed to create appointment');
        }
@@ -28,4 +30,5 @@ const apptHandler = async (event) => {
    }
    catch (error) {console.error(error)}};
 
-document.querySelector("#addAppt").addEventListener('submit', apptHandler);
+document.querySelector("#apptSubmit").addEventListener('submit', apptHandler);
+
