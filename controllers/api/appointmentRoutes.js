@@ -78,25 +78,20 @@ router.post('/:customer_id', async (req, res) => {
     }
   })
 
-  customer = [
-    {
-      "customer_first_name": "Mike",
-      "customer_last_name": "Mallon",
-      "customer_phone": 18475620014,
-      "customer_email": "mallon127@gmail.com",
-      "dog_name": "Simba"
-  }
-  ];
+  const notify = await Customer.findOne({
+    where: {
+      customer_id: req.params.customer_id
+    }
+  })
 
-  console.log(customer);
+  console.log(notify);
 
   try{
-    const info = await transporter.sendMail({
-
+    await transporter.sendMail({
 
     from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
-    to: `${customer[0].customer_email}, ${customer[0].customer_email}`,
-    subject: `${customer[0].dog_name} is ready to be picked up!`,
+    to: `${notify[0].customer_email}, ${notify[0].customer_email}`,
+    subject: `${notify[0].dog_name} is ready to be picked up!`,
     text: "Please come see us at 123 Main Street to pick up your furry friend!",
     html: `
     
@@ -117,7 +112,7 @@ router.post('/:customer_id', async (req, res) => {
     
     `,
   });
-  return res.json(customer);
+  return res.json(notify);
 
   }
   catch(err) {
