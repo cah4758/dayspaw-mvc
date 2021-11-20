@@ -1,34 +1,34 @@
 [
     {
-      "appointment_time": "09:00",
+      "appointment_time": "09",
       "customer_id": null
     },
     {
-      "appointment_time": "10:00",
+      "appointment_time": "10",
       "customer_id": null
     },
     {
-      "appointment_time": "11:00",
+      "appointment_time": "11",
       "customer_id": null
     },
     {
-      "appointment_time": "12:00",
+      "appointment_time": "12",
       "customer_id": null
     },
     {
-      "appointment_time": "13:00",
+      "appointment_time": "13",
       "customer_id": null
     },
     {
-      "appointment_time": "14:00",
+      "appointment_time": "14",
       "customer_id": null
     },
     {
-      "appointment_time": "09:00",
+      "appointment_time": "15",
       "customer_id": null
     },
     {
-      "appointment_time": "09:00",
+      "appointment_time": "16",
       "customer_id": null
     }
 ]
