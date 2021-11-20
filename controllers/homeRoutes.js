@@ -1,8 +1,6 @@
 const router = require("express").Router();
-const PORT = require('../server');
-const {
-  User
-} = require("../models");
+const PORT = require("../server");
+const { User } = require("../models");
 const withAuth = require("../utils/auth");
 // const headersFilter = require('../utils/middleware/headers');
 // redirects to the login page
@@ -16,10 +14,10 @@ router.get("/", async (req, res) => {
 
 router.get("/addAppt", async (req, res) => {
   if (req.session.logged_in) {
-       res.redirect("/api/addAppt");
-       return;
+    res.redirect("/api/addAppt");
+    return;
   }
-  res.redirect("/login")
+  res.redirect("/login");
 });
 
 router.get("/appointments", async (req, res) => {
@@ -27,7 +25,7 @@ router.get("/appointments", async (req, res) => {
     res.redirect("/api/appointments");
     return;
   }
-  res.redirect("/login")
+  res.redirect("/login");
 });
 
 router.get("/addAppt", async (req, res) => {
@@ -35,7 +33,7 @@ router.get("/addAppt", async (req, res) => {
     res.redirect("/api/addAppt");
     return;
   }
-  res.redirect("/login")
+  res.redirect("/login");
 });
 
 router.get("/customers", async (req, res) => {
@@ -44,7 +42,7 @@ router.get("/customers", async (req, res) => {
     return;
   }
   res.redirect("/login");
-})
+});
 
 // employee login
 router.get("/login", async (req, res) => {
@@ -60,7 +58,6 @@ router.get("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.send("Bye!");
       res.status(204).end();
     });
   } else {
@@ -69,6 +66,5 @@ router.post("/logout", (req, res) => {
 });
 
 // display schedule route
-
 
 module.exports = router;

@@ -1,6 +1,6 @@
 {{!-- Populate each customer into a box --}}
 {{!-- Form Details: customer_first_name, customer_last_name, customer_phone, customer_email, dog_name --}}
-<nav class="teal lighten-2">
+{{!-- <nav class="teal lighten-2">
     <div class="nav-wrapper brand-logo center">
       <ul id="nav-align"class="center">
           <li class=""><a href="/appointments">Appointments</a></li>
@@ -9,7 +9,28 @@
           <li><a href="" id="logout">Logout</a></li>
         </ul>
     </div>
+  </nav> --}}
+
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper">
+        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <div class="container">
+        <ul class="hide-on-med-and-down">
+          <li ><a href="/appointments">Appointments</a></li>
+          <li><a href="/addAppt">Add Appointment</a></li>
+          <li class="active"><a href="/customers">New Customer</a></li>
+          <li><a href="#" method="post"id="logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
+
+  <ul class="sidenav" id="mobile-links">
+    <li ><a href="/appointments">Appointments</a></li>
+    <li class="active"><a href="/addAppt">Add Appointment</a></li>
+    <li><a href="/customers">New Customer</a></li>
+    <li><a href="" id="logout">Logout</a></li>
+  </ul>
 
 <br>
 <br>
@@ -18,6 +39,7 @@
 <h4>New Customer Registration</h4>
 <br>
 <br>
+<form action="post" id="addCustomer">
   <div class="row">
     <form class="col s12">
       <div class="row">
@@ -51,10 +73,17 @@
     </form>
   </div>
 
+<<<<<<< HEAD
 <button id="addCustomer" style="margin-bottom: 50px;" class="btn-small waves-effect waves-light" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
 </button>
 
+=======
+  <button id="button-text" style="margin: 10px auto 50px;" class="btn-small waves-effect waves-light" type="submit"   name="action">Submit
+      <i class="material-icons right">send</i>
+  </button>
+</form>
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
 <br>
 <h4>Current Customers</h4>
 <br>

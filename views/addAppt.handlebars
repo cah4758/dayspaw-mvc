@@ -3,6 +3,7 @@
           src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js" >
      </script>
 
+<<<<<<< HEAD
 
 
 
@@ -13,15 +14,47 @@
             <li class="active"><a href="/addAppt">Add Appointment</a></li>
             <li><a href="/customers">New Customer</a></li>
             <li><a href="" id="logout">Logout</a></li>
+=======
+  {{!-- <nav class="teal lighten-2">
+    <div class="nav-extended nav-wrapper brand-logo center">
+      <ul id=""class="center">
+          <li ><a href="/appointments">Appointments</a></li>
+          <li class="active"><a href="/addAppt">Add Appointment</a></li>
+          <li><a href="/customers">New Customer</a></li>
+          <li><a href="" id="logout">Logout</a></li>
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
         </ul>
+    </div>
+  </nav> --}}
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper">
+        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <div class="container">
+        <ul class="hide-on-med-and-down">
+          <li ><a href="/appointments">Appointments</a></li>
+          <li class="active"><a href="/addAppt">Add Appointment</a></li>
+          <li><a href="/customers">New Customer</a></li>
+          <li><a href="" id="logout">Logout</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
+<<<<<<< HEAD
+=======
+  <ul class="sidenav" id="mobile-links">
+    <li ><a href="/appointments">Appointments</a></li>
+    <li class="active"><a href="/addAppt">Add Appointment</a></li>
+    <li><a href="/customers">New Customer</a></li>
+    <li><a href="" id="logout">Logout</a></li>
+  </ul>
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
 
 <br>
 <br>
 <br>
 
+<<<<<<< HEAD
 
 <form id= "apptSubmit">
     <div class="row">
@@ -58,3 +91,45 @@
 
 <script src="/js/addAppt.js"></script>
      
+=======
+{{!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
+</script> --}}
+<form action="put" class="row" id="addAppt">
+  <div class="row">
+    <div class="input-field col s12 m6">
+        <select id="appointment-name" class="browser-default">
+          <option value="" selected>Select Customer</option>
+          {{#each customers as |customer|}}
+          <option value="{{customer_id}}">{{customer_first_name}} {{customer_last_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+
+
+    <div class="input-field col s12 m6">
+        <select id="appointment-time"  class="browser-default">
+          <option value="" selected>Choose Appointment Time</option>
+          <option value="09">9:00</option>
+          <option value="10">10:00</option>
+          <option value="11">11:00</option>
+          <option value="12">12:00</option>
+          <option value="13">13:00</option>
+          <option value="14">14:00</option>
+          <option value="15">15:00</option>
+          <option value="16">16:00</option>
+          <option value="17">17:00</option>
+        </select>      
+      </div>
+  </div>
+    
+  <button id="addAppt" style="margin-top: 50px;" class="btn-small waves-effect waves-light" type="submit" name="apptSubmit">Submit
+      <i class="material-icons right">send</i>
+  </button>
+</form>
+<script src="/js/addAppt.js"></script>
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa

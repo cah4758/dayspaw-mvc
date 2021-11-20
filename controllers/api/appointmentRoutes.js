@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Appointment, Customer } = require("../../models");
-const withAuth = require('../../utils/auth')
+const withAuth = require("../../utils/auth");
 
 const nodemailer = require("nodemailer");
 
@@ -11,7 +11,12 @@ router.get("/", withAuth, async (req, res) => {
     const allAppointments = await Appointment.findAll({
       include: {
         model: Customer,
-        attributes: ["dog_name"],
+        attributes: [
+          "dog_name",
+          "customer_first_name",
+          "customer_last_name",
+          "customer_id",
+        ],
       },
     });
 
@@ -28,7 +33,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // GET a appointment
-router.get("/:appointment_time", async (req, res) => {
+router.get("/:appointment_time", withAuth, async (req, res) => {
   // Get one appointment from the appointment table
   try {
     const selectAppointment = await Appointment.findOne({
@@ -44,7 +49,7 @@ router.get("/:appointment_time", async (req, res) => {
 });
 
 // Updates appointment based on its droptime
-router.put("/:appointment_time", async (req, res) => {
+router.put("/:appointment_time", withAuth, async (req, res) => {
   // Calls the update method on the Appointment model
   try {
     const updateAppointment = await Appointment.update(
@@ -67,25 +72,36 @@ router.put("/:appointment_time", async (req, res) => {
   }
 });
 
-
-router.post('/:customer_id', async (req, res) => {
-
+router.post("/:customer_id", withAuth, async (req, res) => {
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'dayspaww@gmail.com',
-      pass: 'Project2!'
-    }
-  })
+      user: "dayspaww@gmail.com",
+      pass: "Project2!",
+    },
+  });
 
+<<<<<<< HEAD
   const notify = await Customer.findOne({
     where: {
       customer_id: req.params.customer_id
     }
   })
+=======
+  customer = [
+    {
+      customer_first_name: "Mike",
+      customer_last_name: "Mallon",
+      customer_phone: 18475620014,
+      customer_email: "mallon127@gmail.com",
+      dog_name: "Simba",
+    },
+  ];
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
 
   console.log(notify);
 
+<<<<<<< HEAD
   try{
     await transporter.sendMail({
 
@@ -94,6 +110,15 @@ router.post('/:customer_id', async (req, res) => {
     subject: `${notify[0].dog_name} is ready to be picked up!`,
     text: "Please come see us at 123 Main Street to pick up your furry friend!",
     html: `
+=======
+  try {
+    const info = await transporter.sendMail({
+      from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
+      to: `${customer[0].customer_email}, ${customer[0].customer_email}`,
+      subject: `${customer[0].dog_name} is ready to be picked up!`,
+      text: "Please come see us at 123 Main Street to pick up your furry friend!",
+      html: `
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
     
     <!DOCTYPE html>
     <html lang="en">
@@ -111,15 +136,19 @@ router.post('/:customer_id', async (req, res) => {
     </html>
     
     `,
+<<<<<<< HEAD
   });
   return res.json(notify);
 
   }
   catch(err) {
+=======
+    });
+    return res.json(customer);
+  } catch (err) {
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
     res.json(err);
-  }  
-})
-
-
+  }
+});
 
 module.exports = router;

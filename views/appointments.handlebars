@@ -1,5 +1,5 @@
 
-  <nav class="teal lighten-2">
+  {{!-- <nav class="teal lighten-2">
     <div class="nav-wrapper brand-logo center">
       <ul id="nav-align"class="center">
           <li class="active"><a href="/appointments">Appointments</a></li>
@@ -8,10 +8,32 @@
           <li><a href="" id="logout">Logout</a></li>
         </ul>
     </div>
+  </nav> --}}
+
+  <nav class="teal lighten-2">
+    <div class="nav-wrapper">
+        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <div class="container">
+        <ul class="hide-on-med-and-down">
+          <li class="active"><a href="/appointments">Appointments</a></li>
+          <li><a href="/addAppt">Add Appointment</a></li>
+          <li><a href="/customers">New Customer</a></li>
+          <li><a href="" id="logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
+
+  <ul class="sidenav" id="mobile-links">
+    <li ><a href="/appointments">Appointments</a></li>
+    <li class="active"><a href="/addAppt">Add Appointment</a></li>
+    <li><a href="/customers">New Customer</a></li>
+    <li><a href="" id="logout">Logout</a></li>
+  </ul>
 
   {{!-- Populate each appointment into a box --}}
 {{#each appointments as |appointment| }}
+<<<<<<< HEAD
 <form value="{{customer_id}}" id="notifyForm">
   <div class="col s12 m7 z-depth-2">
     <h5 class="header" style="text-align: left; margin-left: 12%;">{{appointment_time}}</h5>
@@ -21,6 +43,15 @@
           <h3></h3>
           <p>Doggie</p>
           <p value="{{customer.customer_id}}"></p>
+=======
+<div class="col s12 m7 z-depth-2">
+    <h5 class="header" style="text-align: left; margin-left: 25px;">{{appointment_time}}:00</h5>
+    <div class="card horizontal" style="margin: auto 20px 10px">
+      <div class="card-stacked">
+        <div class="card-content">
+          <h3 id="customer" value="{{customer.customer_id}}">{{customer.customer_first_name}} {{customer.customer_last_name}}</h3>
+          <p>{{customer.dog_name}}</p>
+>>>>>>> 666d3ede26c75948aae487c1e2f5d0ee125266fa
         </div>
         <div class="card-action">
         </div>
