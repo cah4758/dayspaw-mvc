@@ -85,7 +85,7 @@ router.post("/:customer_id", withAuth, async (req, res) => {
     where: {
       customer_id: req.params.customer_id
     }
-  })
+  });
   
   console.log(notify);
 
@@ -93,8 +93,8 @@ router.post("/:customer_id", withAuth, async (req, res) => {
     await transporter.sendMail({
 
     from: '"DaySpaw 🐾" <dayspaww@gmail.com>',
-    to: `${notify[0].customer_email}, ${notify[0].customer_email}`,
-    subject: `${notify[0].dog_name} is ready to be picked up!`,
+    to: `${notify.dataValues.customer_email}, ${notify.dataValues.customer_email}`,
+    subject: `${notify.dataValues.dog_name} is ready to be picked up!`,
     text: "Please come see us at 123 Main Street to pick up your furry friend!",
     html: `
     

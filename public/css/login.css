@@ -371,14 +371,9 @@ main {
 }
 
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1380px) {
      nav {
-          display: flex;
-          justify-content: space-around;
-     }
-     .nav-wrapper {
-          justify-content: space-around;
-          display: flex;
+          height: 112px;
      }
      
 
