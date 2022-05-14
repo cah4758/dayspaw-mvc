@@ -1,57 +1,14 @@
-
-  {{!-- <nav class="teal lighten-2">
-    <div class="nav-extended nav-wrapper brand-logo center">
-      <ul id=""class="center">
-          <li ><a href="/appointments">Appointments</a></li>
-          <li class="active"><a href="/addAppt">Add Appointment</a></li>
-          <li><a href="/customers">New Customer</a></li>
-          <li><a href="" id="logout">Logout</a></li>
-        </ul>
-    </div>
-  </nav> --}}
-  <nav class="teal lighten-2">
-    <div class="brand-logo center" style="width: 50%">
-        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <div class="container">
-        <ul class="hide-on-med-and-down">
-          <li ><a href="/appointments">Appointments</a></li>
-          <li class="active"><a href="/addAppt">Add Appointment</a></li>
-          <li><a href="/customers">New Customer</a></li>
-          <li><a href="" id="logout">Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-links">
-    <li ><a href="/appointments">Appointments</a></li>
-    <li class="active"><a href="/addAppt">Add Appointment</a></li>
-    <li><a href="/customers">New Customer</a></li>
-    <li><a href="" id="logout">Logout</a></li>
-  </ul>
-
-<br>
-<br>
-<br>
-
-{{!-- <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
-</script> --}}
+{{!-- Form to add customer to appointment --}}
 <form action="put" class="row" id="addAppt">
   <div class="row">
     <div class="input-field col s12 m6">
-        <select id="appointment-name" class="browser-default">
-          <option value="" selected>Select Customer</option>
-          {{#each customers as |customer|}}
-          <option value="{{customer_id}}">{{customer_first_name}} {{customer_last_name}}</option>
-          {{/each}}
-        </select>
-      </div>
-
-
+      <select id="appointment-name" class="browser-default">
+        <option value="" selected>Select Customer</option>
+        {{#each customers as |customer|}}
+        <option value="{{customer_id}}">{{customer_first_name}} {{customer_last_name}}</option>
+        {{/each}}
+      </select>
+    </div>
 
     <div class="input-field col s12 m6">
         <select id="appointment-time"  class="browser-default">

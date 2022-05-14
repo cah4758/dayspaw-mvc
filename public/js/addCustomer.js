@@ -38,6 +38,17 @@ const signupFormHandler = async (event) => {
   }
 };
 
+const removeCustomer = async (event) => {
+  event.preventDefault();
+  const customer_id = document.querySelector("#customer").value;
+
+  console.log("remove " + customer_id);
+};
+
 document
   .querySelector("#addCustomer")
   .addEventListener("submit", signupFormHandler);
+
+document
+  .querySelector("#removeCustomer")
+  .addEventListener("submit", removeCustomer);

@@ -13,6 +13,7 @@ router.get("/", withAuth, async (req, res) => {
 
     res.render("customers", {
       customers,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.json(err + "Error here too, figure it out");

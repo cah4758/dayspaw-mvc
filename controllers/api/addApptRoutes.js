@@ -13,6 +13,7 @@ router.get("/", withAuth, async (req, res) => {
 
     res.render("addAppt", {
       customers,
+      logged_in: req.session.logged_in,
     });
   } catch (error) {
     console.error(error);

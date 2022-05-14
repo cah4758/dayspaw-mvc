@@ -65,6 +65,4 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// display schedule route
-
 module.exports = router;

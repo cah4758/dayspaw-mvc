@@ -26,6 +26,7 @@ router.get("/", withAuth, async (req, res) => {
 
     res.render("appointments", {
       appointments,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.json(err + " That ain't it, chief");

@@ -1,49 +1,32 @@
-
-  {{!-- <nav class="teal lighten-2">
-    <div class="nav-wrapper brand-logo center">
-      <ul id="nav-align"class="center">
-          <li class="active"><a href="/appointments">Appointments</a></li>
-          <li><a href="/addAppt">Add Appointment</a></li>
-          <li><a href="/customers">New Customer</a></li>
-          <li><a href="" id="logout">Logout</a></li>
-        </ul>
-    </div>
-  </nav> --}}
-
-  <nav class="teal lighten-2">
-    <div class="brand-logo center" style="width: 50%">
-        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <div class="container">
-        <ul class="hide-on-med-and-down">
-          <li class="active"><a href="/appointments">Appointments</a></li>
-          <li><a href="/addAppt">Add Appointment</a></li>
-          <li><a href="/customers">New Customer</a></li>
-          <li><a href="" id="logout">Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-links">
-    <li class="active" ><a href="/appointments">Appointments</a></li>
-    <li><a href="/addAppt">Add Appointment</a></li>
-    <li><a href="/customers">New Customer</a></li>
-    <li><a href="" id="logout">Logout</a></li>
-  </ul>
-
-  {{!-- Populate each appointment into a box --}}
-{{#each appointments as |appointment| }}
-<div class="col s12 m7 z-depth-2">
-    <h5 class="header" style="text-align: left; margin-left: 25px;">{{appointment_time}}:00</h5>
-    <div class="card horizontal" style="margin: auto 50px 10px">
-      <div class="card-stacked">
-        <div class="card-content">
-          <h3 id="customer" value="{{customer.customer_id}}">{{customer.customer_first_name}} {{customer.customer_last_name}}</h3>
-          <p>{{customer.dog_name}}</p>
-        </div>
-        <div class="card-action">
+{{! Populate each appointment into a box. Blank if no one is scheduled. Otherwise will populate Customer and Dog Names }}
+{{#each appointments as |appointment|}}
+  <form action="post" id="sendMail">
+    <div class="col s12 m7 z-depth-2">
+      <h5
+        class="header"
+        style="text-align: left; margin-left: 25px;"
+      >{{appointment_time}}:00</h5>
+      <div class="card horizontal" style="margin: auto 50px 10px">
+        <div class="card-stacked">
+          <div class="card-content">
+            <h3
+              id="customer"
+              value="{{customer.customer_id}}"
+            >{{customer.customer_first_name}}
+              {{customer.customer_last_name}}</h3>
+            <p>{{customer.dog_name}}</p>
+          </div>
+          <div class="card-action">
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >Pickup!
+              <i class="material-icons right">mail_outline</i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 {{/each}}
